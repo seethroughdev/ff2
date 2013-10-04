@@ -1,0 +1,13 @@
+<ul>
+  <li data-ng-repeat="item in items">{{item.name}} | {{item.slug}} | {{item.$id}}</li>
+</ul>
+
+<form data-ng-submit="items.add(item, cb(ref.name()))">
+  <input type="text" data-ng-model="item.name" placeholder="Name">
+  <input type="text" data-ng-model="item.version" placeholder="Version">
+  <input type="text" data-ng-model="item.desc" placeholder="Description">
+  <slug from="item.name" to="item.$id">My slug is {{item.slug}}</slug>
+
+  <input type="submit" value="Submit">
+
+</form>
