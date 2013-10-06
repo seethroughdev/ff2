@@ -1,7 +1,9 @@
 $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
-@import "bootstrap-sass/lib/bootstrap";
+@import "sass-bootstrap/lib/bootstrap";
+
+@import "formstrap.css";
 
 /* Put your CSS here */
 html, body {
@@ -12,6 +14,7 @@ body {
     background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
+    overflow-y: scroll;
 }
 
 .hero-unit {
