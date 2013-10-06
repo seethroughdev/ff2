@@ -2,24 +2,30 @@
   <li data-ng-repeat="theme in themes">{{theme.name}} | {{theme.slug}} | {{theme.$id}}</li>
 </ul>
 
+<ul class="nav nav-tabs">
+  <li><a href="#form-details" data-toggle="tab">Details</a></li>
+  <li><a href="#form-vars" data-toggle="tab">Vars</a></li>
+  <li><a href="#form-admin" data-toggle="tab">Admin</a></li>
+  <li><a href="#form-form" data-toggle="tab">Form</a></li>
+  <li><a href="#form-group" data-toggle="tab">Group</a></li>
+  <li><a href="#form-field" data-toggle="tab">Field</a></li>
+  <li><a href="#form-label" data-toggle="tab">Label</a></li>
+  <li><a href="#form-input" data-toggle="tab">Input</a></li>
+  <li><a href="#form-checkbox" data-toggle="tab">Checkbox</a></li>
+  <li><a href="#form-state" data-toggle="tab">State</a></li>
+  <li><a href="#form-legend" data-toggle="tab">Legend</a></li>
+  <li><a href="#form-help" data-toggle="tab">Help</a></li>
+  <li><a href="#form-placeholder" data-toggle="tab">Placeholder</a></li>
+  <li><a href="#form-submit" data-toggle="tab">Submit</a></li>
+</ul>
+
 
 <form data-ng-submit="addTheme(theme)">
 
   <h1>{{theme.name}}</h1>
   <h5>{{theme.slug}}</h5>
 
-  <fieldset ng-include="'views/_partials/form-details.html'"></fieldset>
-
-  <fieldset>
-    <legend>Vars</legend>
-    <label>
-      <input type="text">
-      <span class="label-text"></span>
-      <span class="help-text"></span>
-    </label>
-  </fieldset>
-
-  <fieldset ng-include="'views/_partials/form.html'"></fieldset>
+  <div class="tab-content" ng-include="'views/_partials/form.html'"></div>
 
   <input type="submit" value="Submit">
 
