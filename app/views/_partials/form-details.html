@@ -1,0 +1,15 @@
+<legend>Details</legend>
+<label>
+  <input type="text" data-ng-model="theme.name" placeholder="Name">
+  <input type="hidden" data-ng-model="theme.slug">
+  <span class="label-text">Theme Name</span>
+  <slug from="theme.name" to="theme.slug">{{theme.slug}}</slug>
+</label>
+<label>
+  <input type="text" data-ng-model="theme.desc" placeholder="Description">
+  <span class="label-text">Description</span>
+</label>
+<label>
+  <input type="text" data-ng-model="theme.version" placeholder="Version">
+  <span class="label-text">Version</span>
+</label>

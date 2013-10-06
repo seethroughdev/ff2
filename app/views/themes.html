@@ -1,13 +1,69 @@
 <ul>
-  <li data-ng-repeat="item in items">{{item.name}} | {{item.slug}} | {{item.$id}}</li>
+  <li data-ng-repeat="theme in themes">{{theme.name}} | {{theme.slug}} | {{theme.$id}}</li>
 </ul>
 
-<form data-ng-submit="items.add(item, cb(ref.name()))">
-  <input type="text" data-ng-model="item.name" placeholder="Name">
-  <input type="text" data-ng-model="item.version" placeholder="Version">
-  <input type="text" data-ng-model="item.desc" placeholder="Description">
-  <slug from="item.name" to="item.$id">My slug is {{item.slug}}</slug>
+
+<form data-ng-submit="addTheme(theme)">
+
+  <h1>{{theme.name}}</h1>
+  <h5>{{theme.slug}}</h5>
+
+  <fieldset ng-include="'views/_partials/form-details.html'"></fieldset>
+
+  <fieldset>
+    <legend>Vars</legend>
+    <label>
+      <input type="text">
+      <span class="label-text"></span>
+      <span class="help-text"></span>
+    </label>
+  </fieldset>
+
+  <fieldset ng-include="'views/_partials/form-admin.html'"></fieldset>
+  <fieldset ng-include="'views/_partials/form-form.html'"></fieldset>
+  <fieldset ng-include="'views/_partials/form-group.html'"></fieldset>
+  <fieldset ng-include="'views/_partials/form-field.html'"></fieldset>
+  <fieldset ng-include="'views/_partials/form-label.html'"></fieldset>
+
+  <fieldset>
+    <legend>Input Settings</legend>
+
+  </fieldset>
+
+  <fieldset>
+    <legend>Checkbox/Radio Settings</legend>
+
+  </fieldset>
+
+  <fieldset>
+    <legend>State Settings</legend>
+
+  </fieldset>
+
+  <fieldset>
+    <legend>Legend Settings</legend>
+
+  </fieldset>
+
+  <fieldset>
+    <legend>Help Settings</legend>
+
+  </fieldset>
+
+  <fieldset>
+    <legend>Placeholder Settings</legend>
+
+  </fieldset>
+
+  <fieldset>
+    <legend>Submit Settings</legend>
+
+  </fieldset>
+
+
+
 
   <input type="submit" value="Submit">
 
 </form>
+<pre>{{themes|json}}</pre>
