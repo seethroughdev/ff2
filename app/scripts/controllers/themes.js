@@ -6,33 +6,49 @@ angular.module('formulateAdminApp')
     // add console.log
     var $log = $log.log;
 
+    // firebase setup
     var url = "https://formulate.firebaseio.com/";
     var ref = new Firebase(url);
-
     var themesRef = ref.child('themes');
 
-    var deferred = $q.defer();
+    // initializing themes obj
+    $scope.themes = []
 
-    $scope.themes = {}
+    // syncing themes with Firebase
+    angularFire(themesRef, $scope, 'themes')
+      .then(function(ref) {
 
-    var promise = deferred.promise;
+        $log('Themes loaded');
 
-    // add snapshots onload
-    themesRef.on('value', function(snapshot) {
-      if(snapshot.val() === null) {
-        $log('There are no current themes!');
-      } else {
-        $log('snapshot is', snapshot.val());
-        $scope.themes = snapshot.val();
-        $scope.currentTheme = snapshot.val().aaa;
-        $log($scope.currentTheme);
-        $scope.$apply();
-      }
-    })
+      }).then(function() {
 
-    promise.then(function() {
-      $log('promise happened')
-    })
+        // pass current theme if there is one
+        if ($routeParams.slug) {
+          var slug = $routeParams.slug;
+          angularFire(themesRef.child(slug), $scope, 'currentTheme');
+        };
+      })
+
+
+
+
+    // var getCurrentTheme = function(slug) {
+    //   $scope.currentTheme =
+    // }
+
+    // // add snapshots onload
+    // themesRef.on('value', function(snapshot) {
+    //   if(snapshot.val() === null) {
+    //     $log('There are no current themes!');
+    //   } else {
+    //     $log('snapshot is', snapshot.val());
+    //     $scope.themes = snapshot.val();
+    //     $scope.currentTheme = snapshot.val().aaa;
+    //     $log($scope.currentTheme);
+    //     $scope.$apply();
+    //   }
+    // })
+
 
     // themesRef.on('child_added', function(snapshot) {
     //   var currentTheme = snapshot.val();
@@ -40,24 +56,31 @@ angular.module('formulateAdminApp')
     //   $scope.currentTheme = currentTheme;
     // })
 
-    // add Theme
-    $scope.addTheme = function(obj) {
-      window.console.log('updated themes', obj);
 
+    // add Theme Function
+    $scope.addTheme = function(obj) {
+      $log('updated themes', obj);
+
+      // add default date to obj
       obj.dateCreated = new Date();
+      obj.version = '1.1';
+
+      // add obj
+      // $scope.themes.push(obj);
       themesRef.child(obj.slug).set(obj);
 
+      // reset theme
       $scope.theme = "";
 
     }
 
 
-    $scope.getCurrentTheme = function(slug) {
-        var slug = $routeParams.slug;
-        // window.console.log($routeParams.slug);
-        $scope.currentTheme = themesRef.child('aaa');
-        $log($scope.currentTheme);
-    }
+    // $scope.getCurrentTheme = function(slug) {
+    //     var slug = $routeParams.slug;
+    //     // window.console.log($routeParams.slug);
+    //     $scope.currentTheme = themesRef.child('"' + slug + '"');
+    //     $log($scope.currentTheme);
+    // }
 
 
     // $scope.themes = []
@@ -67,20 +90,6 @@ angular.module('formulateAdminApp')
     // angularFire(ref, $scope, 'themes').then(function(ref) {
     //     window.console.log('themes were just loaded');
     // });
-
-    // $scope.pushAF = function(item) {
-    //     $scope.themes.push(item, cb(ref));
-    //     $scope.item = ''
-    // }
-
-
-    // // Add a new item by simply modifying the model directly.
-    // // $scope.themes.push({name: "Firebase", desc: "is awesome!"});
-    // // Or, attach a function to $scope that will let a directive in markup manipulate the model.
-    // $scope.removeItem = function() {
-    //   $scope.themes.splice($scope.toRemove, 1);
-    //   $scope.toRemove = null;
-    // };
 
 
     // var cb = function(ref) {

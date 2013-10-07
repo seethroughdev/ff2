@@ -1,3 +1,6 @@
 <ul>
-  <li data-ng-repeat="theme in themes">{{theme.slug}}</li>
+  <li><a href="/#/">New Theme</a></li>
+  <li data-ng-repeat="theme in themes">
+    <a href="/#/themes/{{theme.slug}}">{{theme.name}}</a>
+  </li>
 </ul>
