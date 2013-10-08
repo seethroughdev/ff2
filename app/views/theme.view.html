@@ -4,7 +4,8 @@
 
 <!-- <h5>{{currentTheme.name | hyphenate}}</h5> -->
 
-<button ng-click="removeTheme(currentTheme)">click it</button>
+<button ng-click="removeTheme(currentTheme)">delete {{currentTheme.name}}</button>
+<a class="button" ng-href="/#/themes/edit/{{currentTheme.slug}}">Edit {{currentTheme.name}}</a>
 <pre>
   {{currentTheme | json}}
 </pre>

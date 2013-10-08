@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('formulateAdminApp')
-.controller('ThemesCtrl', function ($scope, $stateParams, $log, $location, angularFire, Slug) {
+.controller('ThemesCtrl', function ($scope, $stateParams, $log, $location, angularFireCollection, Slug) {
 
     // add console.log
     var $log = $log.log;
@@ -13,20 +13,8 @@ angular.module('formulateAdminApp')
     var themesRef = ref.child('themes');
 
     // initializing themes obj
-    $scope.themes = [];
-    $scope.currentTheme = {};
-
-    // syncing themes with Firebase
-    angularFire(themesRef, $scope, 'themes', {})
-      .then(function() {
-        $log('Themes loaded');
-      }).then(function() {
-        // set current theme if there is one
-        if ($stateParams.theme) {
-          $log('detected slug', $stateParams.theme)
-          getCurrentTheme();
-        };
-      });
+    // $scope.themes = [];
+    // $scope.currentTheme = {};
 
 
     var getCurrentTheme = function() {
@@ -35,6 +23,9 @@ angular.module('formulateAdminApp')
       $scope.currentTheme = _.find($scope.themes, function(obj) {
         return obj.slug === slugParam;
       });
+
+      // binding theme to current theme for editing
+      $scope.theme = $scope.currentTheme;
     }
 
 
@@ -52,7 +43,7 @@ angular.module('formulateAdminApp')
       $scope.theme.version = '1.1';
 
       // add obj
-      $scope.themes.push($scope.theme);
+      $scope.themes.add($scope.theme);
       // themesRef.child(obj.slug).set(obj);
 
       // reset theme
@@ -60,10 +51,25 @@ angular.module('formulateAdminApp')
     }
 
     $scope.removeTheme = function(obj) {
-      $scope.toRemove = $scope.themes.indexOf(obj);
-      $scope.themes.splice($scope.toRemove, 1);
+      $scope.themes.remove($scope.theme);
       $location.path('/themes/new')
     }
+
+    $scope.updateTheme = function() {
+      $scope.themes.update($scope.theme);
+      $location.path('/themes/view/' + $scope.theme.slug)
+    }
+
+     // syncing themes with Firebase
+    $scope.themes = angularFireCollection(themesRef, function(snapshot) {
+      $log('snapshot', snapshot.val());
+
+      if ($stateParams.theme) {
+        getCurrentTheme();
+      };
+
+
+    });
 
 
   });
