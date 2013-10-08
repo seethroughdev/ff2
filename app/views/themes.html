@@ -1,29 +1,14 @@
-<ul>
-  <li><a href="/#/">New Theme</a></li>
-  <li data-ng-repeat="theme in themes">
-    <a href="/#/themes/{{theme.slug}}">{{theme.name}}</a>
-  </li>
-</ul>
+<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+  <ul>
+    <li><a href="/#/themes/new">New Theme</a></li>
+    <li data-ng-repeat="theme in themes">
+      <a href="/#/themes/view/{{theme.slug}}">{{theme.name}}</a>
+    </li>
+  </ul>
+</div>
 
-<ul class="nav nav-tabs">
-  <li><a href="#form-details" data-toggle="tab">Details</a></li>
-  <li><a href="#form-vars" data-toggle="tab">Vars</a></li>
-  <li><a href="#form-admin" data-toggle="tab">Admin</a></li>
-  <li><a href="#form-form" data-toggle="tab">Form</a></li>
-  <li><a href="#form-group" data-toggle="tab">Group</a></li>
-  <li><a href="#form-field" data-toggle="tab">Field</a></li>
-  <li><a href="#form-label" data-toggle="tab">Label</a></li>
-  <li><a href="#form-input" data-toggle="tab">Input</a></li>
-  <li><a href="#form-checkbox" data-toggle="tab">Checkbox</a></li>
-  <li><a href="#form-state" data-toggle="tab">State</a></li>
-  <li><a href="#form-legend" data-toggle="tab">Legend</a></li>
-  <li><a href="#form-help" data-toggle="tab">Help</a></li>
-  <li><a href="#form-placeholder" data-toggle="tab">Placeholder</a></li>
-  <li><a href="#form-submit" data-toggle="tab">Submit</a></li>
-</ul>
+<div class="col-xs-6 col-sm-9" ui-view></div>
+
+<!-- <pre>{{themes|json}}</pre> -->
 
 
-<form data-ng-include="'/views/_partials/form.html'" class="form-face" data-ng-submit="addTheme(theme)">
-
-</form>
-<pre>{{themes|json}}</pre>

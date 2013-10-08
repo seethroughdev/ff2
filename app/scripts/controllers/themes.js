@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('formulateAdminApp')
-.controller('ThemesCtrl', function ($scope, $routeParams, $log, $location, angularFire, Slug) {
+.controller('ThemesCtrl', function ($scope, $stateParams, $log, $location, angularFire, Slug) {
 
     // add console.log
     var $log = $log.log;
@@ -22,14 +22,15 @@ angular.module('formulateAdminApp')
         $log('Themes loaded');
       }).then(function() {
         // set current theme if there is one
-        if ($routeParams.slug) {
+        if ($stateParams.theme) {
+          $log('detected slug', $stateParams.theme)
           getCurrentTheme();
         };
       });
 
 
     var getCurrentTheme = function() {
-      var slugParam = $routeParams.slug;
+      var slugParam = $stateParams.theme;
 
       $scope.currentTheme = _.find($scope.themes, function(obj) {
         return obj.slug === slugParam;
@@ -55,7 +56,7 @@ angular.module('formulateAdminApp')
     $scope.removeTheme = function(obj) {
       $scope.toRemove = $scope.themes.indexOf(obj);
       $scope.themes.splice($scope.toRemove, 1);
-      $location.path('/')
+      $location.path('/themes/new')
     }
 
 
