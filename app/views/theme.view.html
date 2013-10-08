@@ -2,7 +2,7 @@
 <h4>{{currentTheme.name}}</h4>
 <p>This is the theme view.</p>
 
-<!-- <h5>{{currentTheme.name | hyphenate}}</h5> -->
+<h5>{{currentTheme.name|hyphenate}}</h5>
 
 <button ng-click="removeTheme(currentTheme)">delete {{currentTheme.name}}</button>
 <a class="button" ng-href="/#/themes/edit/{{currentTheme.slug}}">Edit {{currentTheme.name}}</a>
