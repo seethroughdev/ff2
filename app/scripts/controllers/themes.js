@@ -39,14 +39,20 @@ angular.module('formulateAdminApp')
 
 
     // add Theme Function
-    $scope.addTheme = function(obj) {
+    $scope.addTheme = function() {
+
+      $log($scope.theme)
+
+      var obj = $scope.theme;
+
+      $log(obj)
 
       // add default date to obj
-      obj.dateCreated = new Date();
-      obj.version = '1.1';
+      $scope.theme.dateCreated = new Date();
+      $scope.theme.version = '1.1';
 
       // add obj
-      $scope.themes.push(obj);
+      $scope.themes.push($scope.theme);
       // themesRef.child(obj.slug).set(obj);
 
       // reset theme
