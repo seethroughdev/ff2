@@ -1,8 +1,11 @@
 <h1>{{currentTheme.slug}} is slug</h1>
 <h4>{{currentTheme.name}}</h4>
 <p>This is the theme view.</p>
-<button ng-click="getCurrentTheme()">click it</button>
+
+<!-- <h5>{{currentTheme.name | hyphenate}}</h5> -->
+
+<button ng-click="removeTheme(currentTheme)">click it</button>
 <pre>
-  {{items | json}}
+  {{currentTheme | json}}
 </pre>
 

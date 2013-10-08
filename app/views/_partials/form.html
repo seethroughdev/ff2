@@ -1,14 +1,23 @@
-<fieldset class="tab-pane active" id="form-details" ng-include="'views/_partials/form-details.html'"></fieldset>
-<fieldset class="tab-pane" id="form-vars" ng-include="'views/_partials/form-vars.html'"></fieldset>
-<fieldset class="tab-pane" id="form-admin" ng-include="'views/_partials/form-admin.html'"></fieldset>
-<fieldset class="tab-pane" id="form-form" ng-include="'views/_partials/form-form.html'"></fieldset>
-<fieldset class="tab-pane" id="form-group" ng-include="'views/_partials/form-group.html'"></fieldset>
-<fieldset class="tab-pane" id="form-field" ng-include="'views/_partials/form-field.html'"></fieldset>
-<fieldset class="tab-pane" id="form-label" ng-include="'views/_partials/form-label.html'"></fieldset>
-<fieldset class="tab-pane" id="form-input" ng-include="'views/_partials/form-input.html'"></fieldset>
-<fieldset class="tab-pane" id="form-checkbox" ng-include="'views/_partials/form-checkbox.html'"></fieldset>
-<fieldset class="tab-pane" id="form-state" ng-include="'views/_partials/form-state.html'"></fieldset>
-<fieldset class="tab-pane" id="form-legend" ng-include="'views/_partials/form-legend.html'"></fieldset>
-<fieldset class="tab-pane" id="form-help" ng-include="'views/_partials/form-help.html'"></fieldset>
-<fieldset class="tab-pane" id="form-placeholder" ng-include="'views/_partials/form-placeholder.html'"></fieldset>
-<fieldset class="tab-pane" id="form-submit" ng-include="'views/_partials/form-submit.html'"></fieldset>
+  <h1>{{theme.name}}</h1>
+  <h5>{{theme.slug}}</h5>
+
+  <div class="tab-content">
+
+<legend>Details</legend>
+<label>
+  <input type="text" data-ng-model="$parent.theme.name" placeholder="Name">
+  <input type="hidden" data-ng-model="$parent.theme.slug">
+  <span class="label-text">Theme Name</span>
+  <slug from="theme.name" to="theme.slug">{{theme.slug}}</slug>
+</label>
+<label>
+  <input type="text" data-ng-model="$parent.theme.desc" placeholder="Description">
+  <span class="label-text">Description</span>
+</label>
+<label>
+  <input type="text" data-ng-model="$parent.theme.version" placeholder="Version">
+  <span class="label-text">Version</span>
+</label>
+
+ <input type="submit" value="Submit">
+  </div>
