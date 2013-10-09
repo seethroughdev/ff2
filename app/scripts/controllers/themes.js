@@ -17,47 +17,50 @@ angular.module('formulateAdminApp')
     // $scope.currentTheme = {};
 
 
-    var getCurrentTheme = function() {
-      var slugParam = $stateParams.theme;
+    var getCurrentTheme = function(slug) {
 
-      $scope.currentTheme = _.find($scope.themes, function(obj) {
-        return obj.slug === slugParam;
-      });
+      var slugParam = slug || $stateParams.theme;
 
-      // binding theme to current theme for editing
+      var index = _.findIndex($scope.themes, {slug: slugParam} );
+
+      $scope.currentTheme = $scope.themes[index];
+
+      $log($scope.currentTheme.slug)
+
+      // // binding theme to current theme for editing
       $scope.theme = $scope.currentTheme;
+
+      // $location.path('/themes/' + slugParam)
     }
 
 
     // add Theme Function
     $scope.addTheme = function() {
 
-      $log($scope.theme)
-
       var obj = $scope.theme;
 
-      $log(obj)
-
       // add default date to obj
-      $scope.theme.dateCreated = new Date();
-      $scope.theme.version = '1.1';
+      obj.dateCreated = new Date();
+      obj.version = '1.1';
 
       // add obj
-      $scope.themes.add($scope.theme);
-      // themesRef.child(obj.slug).set(obj);
+      $scope.themes.add(obj);
 
       // reset theme
       $scope.theme = "";
+
+      getCurrentTheme(obj.slug);
+
     }
 
     $scope.removeTheme = function(obj) {
       $scope.themes.remove($scope.theme);
-      $location.path('/themes/new')
+      $location.path('/themes/create/')
     }
 
     $scope.updateTheme = function() {
       $scope.themes.update($scope.theme);
-      $location.path('/themes/view/' + $scope.theme.slug)
+      $location.path('/themes/' + $scope.theme.slug)
     }
 
      // syncing themes with Firebase
@@ -65,7 +68,9 @@ angular.module('formulateAdminApp')
       $log('snapshot', snapshot.val());
 
       if ($stateParams.theme) {
+
         getCurrentTheme();
+
       };
 
 
