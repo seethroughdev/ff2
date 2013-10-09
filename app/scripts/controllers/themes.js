@@ -12,26 +12,16 @@ angular.module('formulateAdminApp')
     var ref = new Firebase(url);
     var themesRef = ref.child('themes');
 
-    // initializing themes obj
-    // $scope.themes = [];
-    // $scope.currentTheme = {};
-
-
     var getCurrentTheme = function(slug) {
 
       var slugParam = slug || $stateParams.theme;
 
-      var index = _.findIndex($scope.themes, {slug: slugParam} );
+      // get current theme by slug
+      $scope.currentTheme = _.find($scope.themes, {slug: slugParam} );
 
-      $scope.currentTheme = $scope.themes[index];
-
-      $log($scope.currentTheme.slug)
-
-      // // binding theme to current theme for editing
+      // binding theme to current theme for editing
       $scope.theme = $scope.currentTheme;
-
-      // $location.path('/themes/' + slugParam)
-    }
+    };
 
 
     // add Theme Function
@@ -49,9 +39,13 @@ angular.module('formulateAdminApp')
       // reset theme
       $scope.theme = "";
 
+      // get theme obj from slug
       getCurrentTheme(obj.slug);
 
-    }
+      // send user to new path after complete
+      $location.path('/themes/' + obj.slug);
+
+    };
 
     $scope.removeTheme = function(obj) {
       $scope.themes.remove($scope.theme);
@@ -65,7 +59,7 @@ angular.module('formulateAdminApp')
 
      // syncing themes with Firebase
     $scope.themes = angularFireCollection(themesRef, function(snapshot) {
-      $log('snapshot', snapshot.val());
+      // newThemes = snapshot.val();
 
       if ($stateParams.theme) {
 
