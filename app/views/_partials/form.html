@@ -6,17 +6,17 @@
     <fieldset class="tab-pane active" id="form-details">
       <legend>Details</legend>
       <label>
-        <input type="text" data-ng-model="$parent.theme.name" placeholder="Name">
-        <input type="hidden" data-ng-model="$parent.theme.slug">
+        <input type="text" data-ng-model="$parent.theme.details.name" placeholder="Name">
+        <input type="hidden" data-ng-model="$parent.theme.details.slug">
         <span class="label-text">Theme Name</span>
-        <slug from="$parent.theme.name" to="$parent.theme.slug">{{$parent.theme.slug}}</slug>
+        <slug from="$parent.theme.details.name" to="$parent.theme.details.slug">{{$parent.theme.slug}}</slug>
       </label>
       <label>
-        <input type="text" data-ng-model="$parent.theme.desc" placeholder="Description">
+        <input type="text" data-ng-model="$parent.theme.details.desc" placeholder="Description">
         <span class="label-text">Description</span>
       </label>
       <label>
-        <input type="text" data-ng-model="$parent.theme.version" placeholder="Version">
+        <input type="text" data-ng-model="$parent.theme.details.version" placeholder="Version">
         <span class="label-text">Version</span>
       </label>
     </fieldset>
