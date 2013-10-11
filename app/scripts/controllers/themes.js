@@ -16,6 +16,7 @@ angular.module('formulateAdminApp')
     var themesPromise = angularFire(refThemes, $scope, 'themes');
     var adminPromise = angularFire(refAdmin, $scope, 'admin');
 
+    // reset values
     $scope.theme = '';
     $scope.editedTheme = null;
     $scope.themes = [];
@@ -23,7 +24,7 @@ angular.module('formulateAdminApp')
 
     $scope.location = $location;
 
-    // start watching
+    // load Themes
     themesPromise.then(function(ref) {
       startWatch($scope, filterFilter)
       $log('it loaded')
@@ -31,6 +32,7 @@ angular.module('formulateAdminApp')
       $log('ERROR: Loading Themes: ' + err);
     });
 
+    // load Admin
     adminPromise.then(function(ref) {
       setupAdmin()
     }, function(err) {
