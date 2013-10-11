@@ -14,87 +14,184 @@ angular.module('formulateAdminApp')
         refForm = refDocs.child('form'),
         refField = refDocs.child('field');
 
-    // var docsPromise = angularFire(refDocs, $scope, 'docs');
+    var docsPromise = angularFire(refDocs, $scope, 'docs');
 
-    var formPromise = angularFire(refForm, $scope, 'form');
-    var fieldPromise = angularFire(refField, $scope, 'field');
+    var types = ['admin', 'form', 'group', 'field', 'label', 'input', 'check', 'state', 'legend', 'help', 'placeholder', 'submit']
+
+    // var formPromise = angularFire(refForm, $scope, 'form');
+    // var fieldPromise = angularFire(refField, $scope, 'field');
 
     // reset values
     $scope.docs = [];
-    $scope.form = [];
-    $scope.field = [];
+    $scope.docs.field = [];
 
     $scope.location = $location;
 
-    // load Themes
-    // docsPromise.then(function(ref) {
-    //   startWatch($scope, filterFilter)
-    // }, function(err) {
-    //   $log('ERROR: Loading Themes: ' + err);
-    // });
 
-    formPromise.then(function(ref) {
-      $log('form loaded')
-      var obj = {
+    // load Docs
+    docsPromise.then(function(ref) {
+      _.forEach(types, function(type) {
+        if (!$scope.docs[type] || $scope.docs[type].length < 1) {
+          setDocObj(type);
+        }
+      })
+    });
+
+    var setDocObj = function( type ) {
+      var obj;
+
+      switch (type) {
+        case "field":
+          obj = fieldObj;
+          break;
+        case "admin":
+          obj = adminObj;
+          break;
+        case "form":
+          obj = formObj;
+          break;
+        case "group":
+          obj = groupObj;
+          break;
+        case "label":
+          obj = labelObj;
+          break;
+        case "input":
+          obj = inputObj;
+          break;
+        case "check":
+          obj = checkObj;
+          break;
+        case "state":
+          obj = stateObj;
+          break;
+        case "legend":
+          obj = legendObj;
+          break;
+        case "help":
+          obj = helpObj;
+          break;
+        case "placeholder":
+          obj = placeholderObj;
+          break;
+        case "submit":
+          obj = submitObj;
+          break;
+        default:
+          break;
+      }
+
+      $scope.docs.push(obj);
+    }
+
+    // var setFieldDocs = function() {
+
+      var fieldObj = {
         'formWidth': {
           'name': 'Form Width',
           'var': '$ff-form-width',
           'desc': 'Set the overall width of your form.  It\'s probably best to leave the width at 100% and size the container with a grid.',
           'default': '100%'
-        }
-      };
+          }
+        };
 
-      if ($scope.form.length < 1) {
-        $scope.form.push(obj);
-      }
-
-    });
-
-    fieldPromise.then(function(ref) {
-      $log('field loaded')
-      var obj = {
+      var adminObj = {
         'formWidth': {
           'name': 'Form Width',
           'var': '$ff-form-width',
           'desc': 'Set the overall width of your form.  It\'s probably best to leave the width at 100% and size the container with a grid.',
           'default': '100%'
-        }
-      };
+          }
+        };
 
-      if ($scope.field.length < 1) {
-        $scope.field.push(obj);
-      }
+      var formObj = {
+        'formWidth': {
+          'name': 'Form Width',
+          'var': '$ff-form-width',
+          'desc': 'Set the overall width of your form.  It\'s probably best to leave the width at 100% and size the container with a grid.',
+          'default': '100%'
+          }
+        };
 
-    });
+      var groupObj = {
+        'formWidth': {
+          'name': 'Form Width',
+          'var': '$ff-form-width',
+          'desc': 'Set the overall width of your form.  It\'s probably best to leave the width at 100% and size the container with a grid.',
+          'default': '100%'
+          }
+        };
 
+      var labelObj = {
+        'formWidth': {
+          'name': 'Form Width',
+          'var': '$ff-form-width',
+          'desc': 'Set the overall width of your form.  It\'s probably best to leave the width at 100% and size the container with a grid.',
+          'default': '100%'
+          }
+        };
 
-    var startWatch = function ($scope, filter) {
+      var inputObj = {
+        'formWidth': {
+          'name': 'Form Width',
+          'var': '$ff-form-width',
+          'desc': 'Set the overall width of your form.  It\'s probably best to leave the width at 100% and size the container with a grid.',
+          'default': '100%'
+          }
+        };
 
+      var checkObj = {
+        'formWidth': {
+          'name': 'Form Width',
+          'var': '$ff-form-width',
+          'desc': 'Set the overall width of your form.  It\'s probably best to leave the width at 100% and size the container with a grid.',
+          'default': '100%'
+          }
+        };
 
-      $scope.$watch('docs', function() {
-      });
+      var stateObj = {
+        'formWidth': {
+          'name': 'Form Width',
+          'var': '$ff-form-width',
+          'desc': 'Set the overall width of your form.  It\'s probably best to leave the width at 100% and size the container with a grid.',
+          'default': '100%'
+          }
+        };
 
-      // watch location path for changes
-      $scope.$watch('location.path()', function(path) {
+      var legendObj = {
+        'formWidth': {
+          'name': 'Form Width',
+          'var': '$ff-form-width',
+          'desc': 'Set the overall width of your form.  It\'s probably best to leave the width at 100% and size the container with a grid.',
+          'default': '100%'
+          }
+        };
 
-      });
+      var helpObj = {
+        'formWidth': {
+          'name': 'Form Width',
+          'var': '$ff-form-width',
+          'desc': 'Set the overall width of your form.  It\'s probably best to leave the width at 100% and size the container with a grid.',
+          'default': '100%'
+          }
+        };
 
+      var placeholderObj = {
+        'formWidth': {
+          'name': 'Form Width',
+          'var': '$ff-form-width',
+          'desc': 'Set the overall width of your form.  It\'s probably best to leave the width at 100% and size the container with a grid.',
+          'default': '100%'
+          }
+        };
 
-
-    };
-
-    var setupDocs = function() {
-      var defaultDocs = {
-        'themeIdCounter': 101,
-        'url': 'http://formulatecss.com'
-      };
-
-      if ($scope.docs.length < 1) {
-        $scope.admin.push(defaultAdmin);
-        $scope.admin = $scope.admin[0];
-      }
-    };
-
-
+      var submitObj = {
+        'formWidth': {
+          'name': 'Form Width',
+          'var': '$ff-form-width',
+          'desc': 'Set the overall width of your form.  It\'s probably best to leave the width at 100% and size the container with a grid.',
+          'default': '100%'
+          }
+        };
 
   });
