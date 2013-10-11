@@ -13,7 +13,7 @@ angular.module('formulateAdminApp', ['firebase', 'ui.router', 'slugifier'])
         controller: 'ThemesCtrl'
       })
       .state('theme.view', {
-        url: '/:themeId',
+        url: '/:themeId/:themeSlug',
         templateUrl: 'views/theme.view.html',
         controller: 'ThemesCtrl'
       })
@@ -23,7 +23,7 @@ angular.module('formulateAdminApp', ['firebase', 'ui.router', 'slugifier'])
         controller: 'ThemesCtrl'
       })
       .state('theme.create', {
-        url: '/create/',
+        url: '/create',
         templateUrl: 'views/theme.create.html',
         controller: 'ThemesCtrl'
       })

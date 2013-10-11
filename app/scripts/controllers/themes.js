@@ -26,21 +26,26 @@ angular.module('formulateAdminApp')
     // start watching
     themesPromise.then(function(ref) {
       startWatch($scope, filterFilter)
+      $log('it loaded')
+    }, function(err) {
+      $log('ERROR: Loading Themes: ' + err);
     });
 
     adminPromise.then(function(ref) {
       setupAdmin()
-    })
+    }, function(err) {
+      $log('ERROR: Loading Admin: ' + err);
+    });
 
     var startWatch = function ($scope, filter) {
 
-      // $scope.$watch('themes', function() {
-      //   $scope.themes = $scope.themes;
-      // });
+      $scope.$watch('themes', function() {
+        $scope.themesList = $scope.themes;
+      });
 
       // watch location path for changes
       $scope.$watch('location.path()', function(path) {
-        if (path === '/themes/' + $stateParams.themeId) {
+        if (path === '/themes/' + $stateParams.themeId + '/' + $stateParams.themeSlug) {
           getCurrentTheme($stateParams.themeId)
         };
       });
@@ -62,7 +67,7 @@ angular.module('formulateAdminApp')
         $scope.theme = "";
 
         // take us to new theme
-        $location.path('/themes/' + obj.id);
+        $location.path('/themes/' + obj.id + '/' + obj.details.slug);
 
       };
 
@@ -74,6 +79,9 @@ angular.module('formulateAdminApp')
       var getCurrentTheme = function(id) {
         id = id || $stateParams.themeId;
         $scope.theme = filter($scope.themes, {id: id});
+        if ($scope.theme.length > 1) {
+          $log('ERROR: there is more than 1 with the same ID!')
+        }
         $scope.theme = $scope.theme[0];
       };
 
