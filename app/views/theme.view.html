@@ -1,12 +1,12 @@
-<h1>{{currentTheme.slug}} is slug</h1>
-<h4>{{currentTheme.name}}</h4>
+<h1>{{theme.details.slug}} is slug</h1>
+<h4>{{theme.details.name}}</h4>
 <p>This is the theme view.</p>
 
-<h5>{{currentTheme.name|hyphenate}}</h5>
+<h5>{{theme.details.name|hyphenate}}</h5>
 
-<button ng-click="removeTheme(currentTheme)">delete {{currentTheme.name}}</button>
-<a class="button" ng-href="/#/themes/{{currentTheme.slug}}/edit">Edit {{currentTheme.name}}</a>
+<button ng-click="removeTheme(theme)">delete {{theme.details.name}}</button>
+<a class="button" ng-href="/#/themes/{{theme.details.slug}}/edit">Edit {{theme.details.name}}</a>
 <pre>
-  {{currentTheme | json}}
+  {{theme | json}}
 </pre>
 

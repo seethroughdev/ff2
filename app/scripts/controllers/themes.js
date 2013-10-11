@@ -35,31 +35,49 @@ angular.module('formulateAdminApp')
     var startWatch = function ($scope, filter) {
 
       // $scope.$watch('themes', function() {
-
-      // }, true);
-
-      // $scope.$watch('location.path()', function(path) {
-
+      //   $scope.themes = $scope.themes;
       // });
+
+      // watch location path for changes
+      $scope.$watch('location.path()', function(path) {
+        if (path === '/themes/' + $stateParams.themeId) {
+          getCurrentTheme($stateParams.themeId)
+        };
+      });
 
       $scope.addTheme = function() {
         if ($scope.theme.details.slug === '') {
           return;
         }
 
+        // set and add current theme
         var obj = $scope.theme;
         obj.details.dateCreated = new Date();
         obj.details.version = '1.1';
-        obj.id = getCurrentThemeId();
-        // obj.id = setThemeId();
-
+        obj.details.favorites = 0;
+        obj.id = setCurrentThemeId();
         $scope.themes.push(obj);
 
+        // reset current theme
         $scope.theme = "";
 
-      };
-    };
+        // take us to new theme
+        $location.path('/themes/' + obj.id);
 
+      };
+
+      $scope.removeTheme = function (theme) {
+        $scope.themes.splice($scope.themes.indexOf(theme), 1);
+        $location.path('/themes/create/')
+      };
+
+      var getCurrentTheme = function(id) {
+        id = id || $stateParams.themeId;
+        $scope.theme = filter($scope.themes, {id: id});
+        $scope.theme = $scope.theme[0];
+      };
+
+    };
 
     var setupAdmin = function() {
       var defaultAdmin = {
@@ -73,11 +91,10 @@ angular.module('formulateAdminApp')
       }
     };
 
-    var getCurrentThemeId = function() {
+    var setCurrentThemeId = function() {
       $scope.admin.themeIdCounter += 1;
       return $scope.admin.themeIdCounter;
     }
-
 
 
   });
