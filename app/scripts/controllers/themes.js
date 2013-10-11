@@ -39,15 +39,25 @@ angular.module('formulateAdminApp')
 
     var startWatch = function ($scope, filter) {
 
+      // set URL's for use in functions
+      var urlTheme = '/themes/' + $stateParams.themeId + '/' + $stateParams.themeSlug;
+      var urlEditTheme = urlTheme + '/edit';
+
       $scope.$watch('themes', function() {
         $scope.themesList = $scope.themes;
       });
 
       // watch location path for changes
       $scope.$watch('location.path()', function(path) {
-        if (path === '/themes/' + $stateParams.themeId + '/' + $stateParams.themeSlug) {
+        // assign value if view
+        if (path === urlTheme) {
           getCurrentTheme($stateParams.themeId)
         };
+
+        // assign value if edit
+        if (path === urlEditTheme) {
+          getCurrentTheme($stateParams.themeId)
+        }
       });
 
       $scope.addTheme = function() {
@@ -70,6 +80,11 @@ angular.module('formulateAdminApp')
         $location.path('/themes/' + obj.id + '/' + obj.details.slug);
 
       };
+
+      $scope.updateTheme = function(theme) {
+        $scope.theme = theme;
+        $location.path(urlTheme)
+      }
 
       $scope.removeTheme = function (theme) {
         $scope.themes.splice($scope.themes.indexOf(theme), 1);
