@@ -13,20 +13,27 @@ angular.module('formulateAdminApp')
         refThemes = ref.child('themes'),
         refAdmin = ref.child('admin');
 
-    var promise = angularFire(refThemes, $scope, 'themes');
+    var themesPromise = angularFire(refThemes, $scope, 'themes');
+    var adminPromise = angularFire(refAdmin, $scope, 'admin');
 
     $scope.theme = '';
     $scope.editedTheme = null;
     $scope.themes = [];
+    $scope.admin = [];
 
     $scope.location = $location;
 
     // start watching
-    promise.then(function(themes) {
+    themesPromise.then(function(ref) {
       startWatch($scope, filterFilter)
     });
 
+    adminPromise.then(function(ref) {
+      setupAdmin()
+    })
+
     var startWatch = function ($scope, filter) {
+
       // $scope.$watch('themes', function() {
 
       // }, true);
@@ -41,18 +48,36 @@ angular.module('formulateAdminApp')
         }
 
         var obj = $scope.theme;
-        obj.dateCreated = new Date();
-        obj.version = '1.1';
+        obj.details.dateCreated = new Date();
+        obj.details.version = '1.1';
+        obj.id = getCurrentThemeId();
         // obj.id = setThemeId();
 
         $scope.themes.push(obj);
 
         $scope.theme = "";
 
+      };
+    };
+
+
+    var setupAdmin = function() {
+      var defaultAdmin = {
+        'themeIdCounter': 101,
+        'url': 'http://formulatecss.com'
+      };
+
+      if ($scope.admin.length < 1) {
+        $scope.admin.push(defaultAdmin);
+        $scope.admin = $scope.admin[0];
       }
+    };
 
-
+    var getCurrentThemeId = function() {
+      $scope.admin.themeIdCounter += 1;
+      return $scope.admin.themeIdCounter;
     }
+
 
 
   });
