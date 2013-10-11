@@ -32,6 +32,16 @@ angular.module('formulateAdminApp', ['firebase', 'ui.router', 'slugifier'])
         templateUrl: 'views/theme.list.html',
         controller: 'ThemesCtrl'
       })
+      .state('docs', {
+        url: '/docs',
+        templateUrl: 'views/docs.html',
+        controller: 'DocsCtrl'
+      })
+      .state('docs.vars', {
+        url: '/vars',
+        templateUrl: 'views/docs.vars.html',
+        controller: 'DocsCtrl'
+      })
 
       // .when('/', {
       //   templateUrl: 'views/themes.html',
