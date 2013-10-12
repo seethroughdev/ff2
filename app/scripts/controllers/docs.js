@@ -508,7 +508,7 @@ angular.module('formulateAdminApp')
           'name': 'State Shadow Style',
           'var': '$ff-state-shadow',
           'desc': 'If you selected Shadow for your state.  Set the shadow style here.',
-          'help': 'ex. 0px 0px 3px 2px'
+          'help': 'ex. 0px 0px 3px 2px',
           'default': 'none'
         },
         'focusLabelColor': {
@@ -610,7 +610,7 @@ angular.module('formulateAdminApp')
           'name': 'Legend Text Transform',
           'var': '$ff-legend-text-transform',
           'desc': 'Set the text-transform of your legend.',
-          'help': 'uppercase|lowercase|capitalize|none'
+          'help': 'uppercase|lowercase|capitalize|none',
           'default': 'none'
         }
       };
@@ -720,7 +720,7 @@ angular.module('formulateAdminApp')
           'name': 'Submit Border Width',
           'var': '$ff-submit-border-width',
           'desc': 'Set the border width of your submit button.',
-          'help': 'Set this to 0 to disable.'
+          'help': 'Set this to 0 to disable.',
           'default': '0'
         },
         'borderStyle': {
@@ -746,7 +746,7 @@ angular.module('formulateAdminApp')
           'name': 'Submit Text Transform',
           'var': '$ff-submit-text-transform',
           'desc': 'Set the text-transform of your submit button.',
-          'help': 'uppercase|lowercase|capitalize|none'
+          'help': 'uppercase|lowercase|capitalize|none',
           'default': 'none'
         },
         'fontWeight': {
