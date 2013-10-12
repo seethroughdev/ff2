@@ -51,6 +51,7 @@ angular.module('formulateAdminApp')
           break;
         case "color":
           obj = colorObj;
+          break;
         case "form":
           obj = formObj;
           break;
@@ -151,7 +152,8 @@ angular.module('formulateAdminApp')
         'formTextTransform': {
           'name': 'Text Transform',
           'var': '$ff-form-text-transform',
-          'desc': 'Set the text-transform of your form.  uppercase|lowercase|none',
+          'desc': 'Set the text-transform of your form.',
+          'help': 'uppercase|lowercase|none'
           'default': 'none'
         },
         'formColor': {
@@ -220,40 +222,185 @@ angular.module('formulateAdminApp')
       };
 
       var adminObj = {
-        'formWidth': {
-          'name': 'Form Width',
-          'var': '$ff-form-width',
-          'desc': 'Set the overall width of your form.  It\'s probably best to leave the width at 100% and size the container with a grid.',
-          'default': '100%'
-        }
-      };
-
-      var fieldObj = {
-        'formWidth': {
-          'name': 'Form Width',
-          'var': '$ff-form-width',
-          'desc': 'Set the overall width of your form.  It\'s probably best to leave the width at 100% and size the container with a grid.',
-          'default': '100%'
+        'importNormalize': {
+          'name': 'Import Normalize',
+          'var': '$ff-import-normalize',
+          'desc': 'If you are not already using Nicolas Galaghers\'s Normalize (hint: you should be), then leave this to true to insert the "form" portion of the code.  If you are already loading Normalize.  Set this to false.',
+          'default': true
+        },
+        'importBoxSizing': {
+          'name': 'Import Box Sizing',
+          'var': '$ff-import-box-sizing',
+          'desc': 'This css makes use of Paul Irish\'s border-box method.  If you are already using it.  Set this to false.  ',
+          'default': true
+        },
+        'useTwitterBootstrap': {
+          'name': 'Twitter Bootstrap Compatible',
+          'var': '$ff-use-twitter-bootstrap',
+          'desc': 'Set this to true if you are using Twitter Bootstrap.  This adds a few KB to your CSS, so only set it to true if you need to use Twitter Bootstrap form styles at the same time.',
+          'default': 'false'
         }
       };
 
       var groupObj = {
-        'formWidth': {
-          'name': 'Form Width',
-          'var': '$ff-form-width',
-          'desc': 'Set the overall width of your form.  It\'s probably best to leave the width at 100% and size the container with a grid.',
-          'default': '100%'
-          }
-        };
+        'groupStacked': {
+          'name': 'Group Stacked',
+          'var': '$ff-group-stacked',
+          'desc': 'Set this to true if you want to have your group fields stacked on top of each other.  This is a common mobile pattern.',
+          'default': 'false'
+          },
+        'groupMarginBottom': {
+          'name': 'Group Margin Bottom',
+          'var': '$ff-group-margin-bottom',
+          'desc': 'Set the bottom margin of your groups.  Good for separating out sections of your form.',
+          'default': '0'
+        },
+        'groupBg': {
+          'name': 'Group Background Color',
+          'var': '$ff-group-background',
+          'desc': 'Set the background color of your group if you want it different than the form background.',
+          'default': 'inherit'
+        },
+        'groupPadding': {
+          'name': 'Group Padding',
+          'var': '$ff-group-padding',
+          'desc': 'Set the padding between the grouped fields.  Keep in mind this uses border-box, so the width will stay consistent and the inside will pad.',
+          'default': '0'
+        }
+      };
+
+      var fieldObj = {
+        'fieldBg': {
+          'name': 'Field Background Color',
+          'var': '$ff-field-bg',
+          'desc': 'Set the default background color of the fields.',
+          'default': '$white'
+        },
+        'fieldBgRound': {
+          'name': 'Field Border Radius',
+          'var': '$ff-field-round',
+          'desc': 'Set the border-radius of the input fields.  This will adapt if you are using label-caps, or label-stacked.',
+          'help': 'Set as px or %'
+          'default': '0'
+        },
+        'fieldPadding': {
+          'name': 'Field Padding',
+          'var': '$ff-field-padding',
+          'desc': 'Set the padding between fields.',
+          'default': '0'
+        },
+        'fieldMarginBottom': {
+          'name': 'Field Margin Bottom',
+          'var': '$ff-field-margin-bottom',
+          'desc': 'Set the bottom margin of each field.',
+          'default': '0'
+        }
+      };
 
       var labelObj = {
-        'formWidth': {
-          'name': 'Form Width',
-          'var': '$ff-form-width',
-          'desc': 'Set the overall width of your form.  It\'s probably best to leave the width at 100% and size the container with a grid.',
-          'default': '100%'
-          }
-        };
+        'labelDisplay': {
+          'name': 'Label Display',
+          'var': '$ff-label-display',
+          'desc': 'Set to true if you want to display labels in your form.',
+          'default': true
+          },
+        'labelWidth': {
+          'name': 'Label Width',
+          'var': '$ff-label-width',
+          'desc': 'Set the width of your labels.  This applies to left and right positioned labels.  Including label-caps and label-inside.',
+          'help': 'Use %, px or em',
+          'default': '25%'
+          },
+        'labelPosition': {
+          'name': 'Label Position',
+          'var': '$ff-label-position',
+          'desc': 'Set the position of your label.',
+          'help': 'top, left, right, bottom'
+          'default': 'top'
+        },
+        'labelAlign': {
+          'name': 'Label Align',
+          'var': '$ff-label-align',
+          'desc': 'Set the text alignment of your labels.',
+          'help': 'left, right, center'
+          'default': 'left'
+        },
+        'labelFontSize': {
+          'name': 'Label Font Size',
+          'var': '$ff-label-font-size',
+          'desc': 'Set the font-size of your labels.',
+          'default': 'inherit'
+        },
+        'labelFontWeight': {
+          'name': 'Label Font Weight',
+          'var': '$ff-label-font-weight',
+          'desc': 'Set the font-weight of your labels.',
+          'default': 'inherit'
+        },
+        'labelFontFamily': {
+          'name': 'Label Font Family',
+          'var': '$ff-label-font-family',
+          'desc': 'Set the font-family of your labels.  This is what you would probably change if you were using icons instead of text.',
+          'default': 'inherit'
+        },
+        'labelColor': {
+          'name': 'Label Text Color',
+          'var': '$ff-label-color',
+          'desc': 'Set the text color of your labels.',
+          'default': 'inherit'
+        },
+        'labelTextTransform': {
+          'name': 'Label Text Transform',
+          'var': '$ff-label-text-tranform',
+          'desc': 'Set the text transform of your labels.',
+          'help': 'uppercase, lowercase, none'
+          'default': 'inherit'
+        },
+        'labelPaddingHorizontal': {
+          'name': 'Label Padding Horizontal',
+          'var': '$ff-label-padding-horizontal',
+          'desc': 'Set this to add padding to the left and right of your inputs.',
+          'default': '0'
+        },
+        'labelOffset': {
+          'name': 'Label Offset',
+          'var': '$ff-label-offset',
+          'desc': 'If you use em for $ff-input-height, you might need to tweak the height.  If you use px it will be correct.',
+          'default': '0'
+        },
+        'labelCap': {
+          'name': 'Label Caps',
+          'var': '$ff-label-cap',
+          'desc': 'Set this to true if you want to cap your labels.',
+          'default': 'false'
+        },
+        'labelCapBg': {
+          'name': 'Label Cap Background',
+          'var': '$ff-label-cap-bg',
+          'desc': 'Set the background of your label caps.',
+          'default': 'inherit'
+        },
+        'labelCapBgImg': {
+          'name': 'Label Cap Background Image',
+          'var': '$ff-label-cap-bg-image',
+          'desc': 'If you want to set a gradient for your label cap.  The Compass mixin is already included.  So you can just add the colors and stops.',
+          'help': 'ex. $light 10%, $primary 50%, $dark',
+          'default': 'none'
+        },
+        'labelCapBoxShadow': {
+          'name': 'Label Cap Box Shadow',
+          'var': '$ff-label-cap-bo-shadow',
+          'desc': 'Add the box-shadow CSS if here if you want to style your caps with a box-shadow.',
+          'help': 'ex. inset 1px 1px 3px 3px $black',
+          'default': 'none'
+        },
+        'labelInside': {
+          'name': 'Label Inside',
+          'var': '$ff-label-inside',
+          'desc': 'Set this to true if you want to include the label inside your input.  This works with left and right label positioning.',
+          'default': 'false'
+        }
+      };
 
       var inputObj = {
         'formWidth': {
