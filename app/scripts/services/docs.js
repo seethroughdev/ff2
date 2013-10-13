@@ -15,7 +15,7 @@ angular.module('formulateAdminApp')
     // Public API here
     return {
       getVars: function(scope, localScopeName) {
-        return angularFire(refVars, scope, localScopeName)
+        return angularFire(refVars, scope, localScopeName);
       }
     };
   });

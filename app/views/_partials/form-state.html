@@ -1,45 +1,52 @@
 <legend>State Settings</legend>
 <label>
-  <input type="checkbox" ng-model="$parent.$parent.theme.state.style" placeholder="style">
-  <span class="label-text">state-style</span>
+  <input type="checkbox" ng-model="$parent.$parent.theme.state.style" placeholder="{{vars.state.style.default}}">
+  <span class="label-text">{{vars.state.style.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.state.shadow" placeholder="shadow">
-  <span class="label-text">state-shadow</span>
+  <input type="text" ng-model="$parent.$parent.theme.state.shadow" placeholder="{{vars.state.shadow.default}}">
+  <span class="label-text">{{vars.state.shadow.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.state.focusLabelColor" placeholder="focus">
-  <span class="label-text">state-focus</span>
+  <input type="text" ng-model="$parent.$parent.theme.state.focusLabelColor" placeholder="{{vars.state.focusLabelColor.default}}">
+  <span class="label-text">{{vars.state.focusLabelColor.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.state.focusInputBg" placeholder="focus-bg">
-  <span class="label-text">state-focus-bg</span>
+  <input type="text" ng-model="$parent.$parent.theme.state.focusInputBg" placeholder="{{vars.state.focusInputBg.default}}">
+  <span class="label-text">{{vars.state.focusInputBg.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.state.disabledColor" placeholder="disabled">
-  <span class="label-text">state-disabled</span>
+  <input type="text" ng-model="$parent.$parent.theme.state.disabledColor" placeholder="{{vars.state.disabledColor.default}}">
+  <span class="label-text">{{vars.state.disabledColor.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.state.invalidColor" placeholder="invalid">
-  <span class="label-text">state-invalid</span>
+  <input type="text" ng-model="$parent.$parent.theme.state.invalidColor" placeholder="{{vars.state.invalidColor.default}}">
+  <span class="label-text">{{vars.state.invalidColor.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.state.successColor" placeholder="success">
-  <span class="label-text">state-success</span>
+  <input type="text" ng-model="$parent.$parent.theme.state.successColor" placeholder="{{vars.state.successColor.default}}">
+  <span class="label-text">{{vars.state.successColor.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.state.requiredColor" placeholder="required-color">
-  <span class="label-text">state-required-color</span>
+  <input type="text" ng-model="$parent.$parent.theme.state.requiredColor" placeholder="{{vars.state.requiredColor.default}}">
+  <span class="label-text">{{vars.state.requiredColor.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.state.helpChangeColor" placeholder="help-change-color">
-  <span class="label-text">state-help-change-color</span>
+  <input type="checkbox" ng-model="$parent.$parent.theme.state.helpChangeColor" placeholder="{{vars.state.helpChangeColor.default}}">
+  <span class="label-text">{{vars.state.helpChangeColor.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.state.labelChangeColor" placeholder="label-change-color">
-  <span class="label-text">state-label-change-color</span>
+  <input type="checkbox" ng-model="$parent.$parent.theme.state.labelChangeColor" placeholder="{{vars.state.labelChangeColor.default}}">
+  <span class="label-text">{{vars.state.labelChangeColor.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.state.changeOnSuccess" placeholder="change-on-success">
-  <span class="label-text">state-change-on-success</span>
+  <input type="checkbox" ng-model="$parent.$parent.theme.state.changeOnSuccess" placeholder="{{vars.state.changeOnSuccess.default}}">
+  <span class="label-text">{{vars.state.changeOnSuccess.name}}</span>
+</label>
+
+
+
+<label>
+  <input type="text" ng-model="$parent.$parent.theme.field.bg" placeholder="{{vars.field.bg.default}}">
+  <span class="label-text">{{vars.field.bg.name}}</span>
 </label>

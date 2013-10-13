@@ -1,13 +1,10 @@
 <legend>Checkbox/Radio Settings</legend>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.checkRadio.columns" placeholder="columns">
-  <span class="label-text">check-radio-columns</span>
+<label>
+  <input type="text" ng-model="$parent.$parent.theme.checkRadio.color" placeholder="{{vars.check.color.default}}">
+  <span class="label-text">{{vars.check.color.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.checkRadio.color" placeholder="color">
-  <span class="label-text">check-radio-color</span>
-</label>
-<label>
-  <input type="text" ng-model="$parent.$parent.theme.checkRadio.hoverColor" placeholder="hover-color">
-  <span class="label-text">check-radio-hover-color</span>
+  <input type="text" ng-model="$parent.$parent.theme.checkRadio.hoverColor" placeholder="{{vars.check.hoverColor.default}}">
+  <span class="label-text">{{vars.check.hoverColor.name}}</span>
 </label>

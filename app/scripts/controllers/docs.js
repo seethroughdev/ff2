@@ -189,6 +189,12 @@ angular.module('formulateAdminApp')
           'desc': 'Set the secondary color for your forms.',
           'default': 'hsla(77.65, 48.57%, 86.27%, 1.00)'
         },
+        'tertiary': {
+          'name': 'Tertiary',
+          'var': '$tertiary',
+          'desc': 'Set the tertiary color for your forms.',
+          'default': 'hsla(77.65, 48.57%, 86.27%, 1.00)'
+        },
         'grey': {
           'name': 'Grey',
           'var': '$grey',

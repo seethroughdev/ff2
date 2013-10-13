@@ -1,13 +1,15 @@
 <legend>Admin</legend>
 <label>
   <input type="checkbox" ng-model="$parent.$parent.theme.admin.normalize">
-  <span class="label-text">Import Normalize</span>
+  <span class="label-text">{{vars.admin.normalize.name}}</span>
 </label>
 <label>
   <input type="checkbox" ng-model="$parent.$parent.theme.admin.boxSizing">
-  <span class="label-text">Import Box-Sizing</span>
+  <span class="label-text">{{vars.admin.boxSizing.name}}</span>
 </label>
 <label>
   <input type="checkbox" ng-model="$parent.$parent.theme.admin.bootstrap">
-  <span class="label-text">Use Twitter Bootstrap</span>
+  <span class="label-text">{{vars.admin.bootstrap.name}}</span>
 </label>
+
+
