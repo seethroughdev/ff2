@@ -27,6 +27,24 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-top col-sm-12" role="navigation">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse ">
+          <ul class="nav navbar-nav">
+          <li class="active"><a href="/#/themes/browse">Browse Themes</a></li>
+            <li><a href="/#/themes/create">New Theme</a></li>
+            <li><a href="/#/docs/vars">Docs</a></li>
+
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+
+        </div><!-- /.navbar-collapse -->
+      </nav>
       <div class="row row-offcanvas">
 <!--         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" ng-controller="ThemesCtrl" ng-include="'views/_partials/themes-sidebar.html'"></div>
  -->    <div class="col-xs-12 col-sm-12" ui-view></div>

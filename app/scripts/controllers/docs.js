@@ -95,7 +95,6 @@ angular.module('formulateAdminApp')
         var varsObj = {};
         _.forEach(types, function(type, i) {
           var obj = setDocObj(type);
-          $log('obj', type)
           varsObj[type] = obj;
         })
         $scope.vars = varsObj;

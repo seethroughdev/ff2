@@ -26,15 +26,16 @@ angular.module('formulateAdminApp')
 
     // load Themes
     themesPromise.then(function(ref) {
-      startWatch($scope, filterFilter)
-      $log('it loaded')
+      startWatch($scope, filterFilter);
+      $log('loaded themes');
     }, function(err) {
       $log('ERROR: Loading Themes: ' + err);
     });
 
     // load Admin
     adminPromise.then(function(ref) {
-      setupAdmin()
+      setupAdmin();
+      $log('loaded admin');
     }, function(err) {
       $log('ERROR: Loading Admin: ' + err);
     });
@@ -53,12 +54,12 @@ angular.module('formulateAdminApp')
       $scope.$watch('location.path()', function(path) {
         // assign value if view
         if (path === urlTheme) {
-          getCurrentTheme($stateParams.themeId)
-        };
+          getCurrentTheme($stateParams.themeId);
+        }
 
         // assign value if edit
         if (path === urlEditTheme) {
-          getCurrentTheme($stateParams.themeId)
+          getCurrentTheme($stateParams.themeId);
         }
       });
 
@@ -76,7 +77,7 @@ angular.module('formulateAdminApp')
         $scope.themes.push(obj);
 
         // reset current theme
-        $scope.theme = "";
+        $scope.theme = '';
 
         // take us to new theme
         $location.path('/themes/' + obj.id + '/' + obj.details.slug);
@@ -85,19 +86,19 @@ angular.module('formulateAdminApp')
 
       $scope.updateTheme = function(theme) {
         $scope.theme = theme;
-        $location.path(urlTheme)
-      }
+        $location.path(urlTheme);
+      };
 
       $scope.removeTheme = function (theme) {
         $scope.themes.splice($scope.themes.indexOf(theme), 1);
-        $location.path('/themes/create/')
+        $location.path('/themes/create/');
       };
 
       var getCurrentTheme = function(id) {
         id = id || $stateParams.themeId;
         $scope.theme = filter($scope.themes, {id: id});
         if ($scope.theme.length > 1) {
-          $log('ERROR: there is more than 1 with the same ID!')
+          $log('ERROR: there is more than 1 with the same ID!');
         }
         $scope.theme = $scope.theme[0];
       };
@@ -119,7 +120,5 @@ angular.module('formulateAdminApp')
     var setCurrentThemeId = function() {
       $scope.admin.themeIdCounter += 1;
       return $scope.admin.themeIdCounter;
-    }
-
-
+    };
   });
