@@ -1,1 +1,13 @@
 <h1>These are the vars</h1>
+
+<ul>
+  <li data-ng-repeat="(key,val) in vars">{{key}}
+  <ul>
+    <li data-ng-repeat="(key, val) in val">{{key}}
+      <ul>
+        <li data-ng-repeat="(key, val) in val">{{key}}: {{val}}</li>
+      </ul>
+    </li>
+  </ul>
+  </li>
+</ul>
