@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('formulateAdminApp')
-  .controller('DocsCtrl', function ($scope, $stateParams, $log, $location, angularFire, filterFilter, Slug) {
+  .controller('DocsCtrl', function ($scope, $stateParams, $log, $location, angularFire, filterFilter, Slug, docService) {
 
     // add console.log
     var $log = $log.log;
@@ -13,12 +13,9 @@ angular.module('formulateAdminApp')
         refDocs = ref.child('docs'),
         refVars = refDocs.child('vars');
 
-    var varsPromise = angularFire(refVars, $scope, 'vars');
 
     var types = ['admin', 'color', 'form', 'group', 'field', 'label', 'input', 'check', 'state', 'legend', 'help', 'placeholder', 'submit'];
 
-    // var formPromise = angularFire(refForm, $scope, 'form');
-    // var fieldPromise = angularFire(refField, $scope, 'field');
 
     // reset values
     $scope.docs = [];
@@ -26,18 +23,10 @@ angular.module('formulateAdminApp')
 
     $scope.location = $location;
 
-
-    varsPromise.then(function(ref) {
+    docService.getVars($scope, 'vars').then(function() {
       setupVars();
       $log('loaded vars');
-    });
-
-    // fieldPromise.then(function(ref) {
-    //   if ($scope.field.length === 0) {
-    //     var obj = setDocObj('field');
-    //     $scope.field.push(obj);
-    //   }
-    // })
+    })
 
     var setDocObj = function( type ) {
       var obj;

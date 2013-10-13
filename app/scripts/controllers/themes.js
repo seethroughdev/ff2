@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('formulateAdminApp')
-.controller('ThemesCtrl', function ($scope, $stateParams, $log, $location, angularFire, filterFilter, Slug) {
+.controller('ThemesCtrl', function ($scope, $stateParams, $log, $location, angularFire, filterFilter, Slug, docService, themeService) {
 
     // add console.log
     var $log = $log.log;
@@ -10,10 +10,10 @@ angular.module('formulateAdminApp')
     // firebase setup
     var url = "https://formulate.firebaseio.com/",
         ref = new Firebase(url),
-        refThemes = ref.child('themes'),
+        // refThemes = ref.child('themes'),
         refAdmin = ref.child('admin');
 
-    var themesPromise = angularFire(refThemes, $scope, 'themes');
+    // var themesPromise = angularFire(refThemes, $scope, 'themes');
     var adminPromise = angularFire(refAdmin, $scope, 'admin');
 
     // reset values
@@ -24,12 +24,18 @@ angular.module('formulateAdminApp')
 
     $scope.location = $location;
 
-    // load Themes
-    themesPromise.then(function(ref) {
-      startWatch($scope, filterFilter);
-      $log('loaded themes');
-    }, function(err) {
-      $log('ERROR: Loading Themes: ' + err);
+    docService.getVars($scope, 'vars')
+      .then(function() {
+      $log('loaded docs');
+      });
+
+
+    themeService.getThemes($scope, 'themes')
+      .then(function(ref) {
+        startWatch($scope, filterFilter);
+        $log('loaded themes');
+      }, function(err) {
+       $log('ERROR: Loading Themes: ' + err);
     });
 
     // load Admin
