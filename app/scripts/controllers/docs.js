@@ -223,13 +223,13 @@ angular.module('formulateAdminApp')
           'name': 'Import Normalize',
           'var': '$ff-import-normalize',
           'desc': 'If you are not already using Nicolas Galaghers\'s Normalize (hint: you should be), then leave this to true to insert the "form" portion of the code.  If you are already loading Normalize.  Set this to false.',
-          'default': true
+          'default': 'true'
         },
         'boxSizing': {
           'name': 'Import Box Sizing',
           'var': '$ff-import-box-sizing',
           'desc': 'This css makes use of Paul Irish\'s border-box method.  If you are already using it.  Set this to false.  ',
-          'default': true
+          'default': 'true'
         },
         'bootstrap': {
           'name': 'Twitter Bootstrap Compatible',
@@ -320,7 +320,7 @@ angular.module('formulateAdminApp')
           'name': 'Label Display',
           'var': '$ff-label-display',
           'desc': 'Set to true if you want to display labels in your form.',
-          'default': true
+          'default': 'true'
           },
         'width': {
           'name': 'Label Width',
@@ -569,13 +569,13 @@ angular.module('formulateAdminApp')
           'name': 'Change Help on State',
           'var': '$ff-state-help-change-color',
           'desc': 'Set to true if you want your help text to change on state.',
-          'default': true
+          'default': 'true'
         },
         'labelChangeColor': {
           'name': 'Change Label on State',
           'var': '$ff-state-label-change-color',
           'desc': 'Set to true if you want your label text to change on state.',
-          'default': true
+          'default': 'true'
         },
         'changeOnSuccess': {
           'name': 'Change State on Success',
@@ -591,7 +591,7 @@ angular.module('formulateAdminApp')
           'name': 'Legend Display',
           'var': '$ff-legend-display',
           'desc': 'Set this to false if you want to hide the Legend.',
-          'default': true
+          'default': 'true'
         },
         'fontSize': {
           'name': 'Legend Font Size',
@@ -638,7 +638,7 @@ angular.module('formulateAdminApp')
           'name': 'Display Help Text',
           'var': '$ff-help-display',
           'desc': 'Set to true to display help text on your form.',
-          'default': true
+          'default': 'true'
         },
         'displayOnFocus': {
           'name': 'Display Help on Focus',
@@ -672,7 +672,7 @@ angular.module('formulateAdminApp')
           'name': 'Placeholder Text Display',
           'var': '$ff-placeholder-display',
           'desc': 'Set to false to hide placeholder text.',
-          'default': true
+          'default': 'true'
         },
         'color': {
           'name': 'Placeholder Text Color',

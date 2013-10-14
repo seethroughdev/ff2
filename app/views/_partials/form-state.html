@@ -1,6 +1,6 @@
 <legend>State Settings</legend>
 <label>
-  <input type="checkbox" ng-model="$parent.$parent.theme.state.style" placeholder="{{vars.state.style.default}}">
+  <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.state.style" placeholder="{{vars.state.style.default}}">
   <span class="label-text">{{vars.state.style.name}}</span>
 </label>
 <label>
@@ -32,15 +32,14 @@
   <span class="label-text">{{vars.state.requiredColor.name}}</span>
 </label>
 <label>
-  <input type="checkbox" ng-model="$parent.$parent.theme.state.helpChangeColor" placeholder="{{vars.state.helpChangeColor.default}}">
+  <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.state.helpChangeColor" placeholder="{{vars.state.helpChangeColor.default}}">
   <span class="label-text">{{vars.state.helpChangeColor.name}}</span>
 </label>
-<label>
-  <input type="checkbox" ng-model="$parent.$parent.theme.state.labelChangeColor" placeholder="{{vars.state.labelChangeColor.default}}">
+<label> ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.state.labelChangeColor" placeholder="{{vars.state.labelChangeColor.default}}">
   <span class="label-text">{{vars.state.labelChangeColor.name}}</span>
 </label>
 <label>
-  <input type="checkbox" ng-model="$parent.$parent.theme.state.changeOnSuccess" placeholder="{{vars.state.changeOnSuccess.default}}">
+  <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.state.changeOnSuccess" placeholder="{{vars.state.changeOnSuccess.default}}">
   <span class="label-text">{{vars.state.changeOnSuccess.name}}</span>
 </label>
 

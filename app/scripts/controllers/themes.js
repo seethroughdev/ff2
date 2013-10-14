@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('formulateAdminApp')
-.controller('ThemesCtrl', function ($scope, $stateParams, $log, $window, $location, angularFire, filterFilter, Slug, docService, themeService) {
+.controller('ThemesCtrl', function ($scope, $stateParams, $log, $window, $location, angularFire, filterFilter, Slug, docService, adminService, themeService) {
 
     // add console.log
     var $log = $log.log;
@@ -14,7 +14,7 @@ angular.module('formulateAdminApp')
         refAdmin = ref.child('admin');
 
     // var themesPromise = angularFire(refThemes, $scope, 'themes');
-    var adminPromise = angularFire(refAdmin, $scope, 'admin');
+    // var adminPromise = angularFire(refAdmin, $scope, 'admin');
 
     // reset values
     $scope.theme = '';
@@ -29,6 +29,14 @@ angular.module('formulateAdminApp')
       $log('loaded docs');
       });
 
+    adminService.setAdmin($scope, 'admin')
+      .then(function(ref) {
+        $log('loaded admin');
+        if ($scope.admin.length < 1) {
+          setupAdmin();
+        }
+      });
+
 
     themeService.getThemes($scope, 'themes')
       .then(function(ref) {
@@ -36,14 +44,6 @@ angular.module('formulateAdminApp')
         $log('loaded themes');
       }, function(err) {
        $log('ERROR: Loading Themes: ' + err);
-    });
-
-    // load Admin
-    adminPromise.then(function(ref) {
-      setupAdmin();
-      $log('loaded admin');
-    }, function(err) {
-      $log('ERROR: Loading Admin: ' + err);
     });
 
     var startWatch = function ($scope, filter) {
@@ -131,10 +131,8 @@ angular.module('formulateAdminApp')
         'url': 'http://formulatecss.com'
       };
 
-      if ($scope.admin.length < 1) {
-        $scope.admin.push(defaultAdmin);
-        $scope.admin = $scope.admin[0];
-      }
+      $scope.admin.push(defaultAdmin);
+      $scope.admin = $scope.admin[0];
     };
 
     var setCurrentThemeId = function() {

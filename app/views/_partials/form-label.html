@@ -1,6 +1,6 @@
 <legend>Label Settings</legend>
 <label>
-  <input type="checkbox" ng-model="$parent.$parent.theme.label.display" placeholder="{{vars.label.display.default}}">
+  <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.label.display" placeholder="{{vars.label.display.default}}">
   <span class="label-text">{{vars.label.display.name}}</span>
 </label>
 <label>
@@ -44,11 +44,11 @@
   <span class="label-text">{{vars.label.offset.name}}</span>
 </label>
 <label>
-  <input type="checkbox" ng-model="$parent.$parent.theme.label.inside" placeholder="{{vars.label.inside.default}}">
+  <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.label.inside" placeholder="{{vars.label.inside.default}}">
   <span class="label-text">{{vars.label.inside.name}}</span>
 </label>
 <label>
-  <input type="checkbox" ng-model="$parent.$parent.theme.label.cap" placeholder="{{vars.label.cap.default}}">
+  <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.label.cap" placeholder="{{vars.label.cap.default}}">
   <span class="label-text">{{vars.label.cap.name}}</span>
 </label>
 <label>
