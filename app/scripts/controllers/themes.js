@@ -70,29 +70,29 @@ angular.module('formulateAdminApp')
       });
 
       $scope.addTheme = function() {
-        if ($scope.theme.details.slug === '') {
+        if ($scope.theme.detail.slug === '') {
           return;
         }
 
-        // set and add current theme
+        // using object to avoid iterating over scope
+        var vars = $scope.vars;
         var obj = $scope.theme;
 
         // set theme defaults if empty
-        angular.forEach($scope.vars, function(value, key) {
+        angular.forEach(vars, function(value, key) {
           if (obj[key] === undefined) {
             obj[key] = {};
           }
           angular.forEach(value, function(v, k) {
-            if (obj[key][k] === undefined) {
+            if (obj[key][k] === undefined || obj[key][k] === '') {
               obj[key][k] = v.default;
-              $log(obj);
             }
           });
         });
 
-        obj.details.dateCreated = new Date();
-        obj.details.version = '1.1';
-        obj.details.favorites = 0;
+        obj.detail.dateCreated = new Date();
+        obj.detail.version = '1.1';
+        obj.detail.favorites = 0;
         obj.id = setCurrentThemeId();
         $scope.themes.push(obj);
 
@@ -100,7 +100,7 @@ angular.module('formulateAdminApp')
         $scope.theme = '';
 
         // take us to new theme
-        $location.path('/themes/' + obj.id + '/' + obj.details.slug);
+        $location.path('/themes/' + obj.id + '/' + obj.detail.slug);
 
       };
 

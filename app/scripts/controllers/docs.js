@@ -14,7 +14,7 @@ angular.module('formulateAdminApp')
         refVars = refDocs.child('vars');
 
 
-    var types = ['admin', 'color', 'details', 'form', 'group', 'field', 'label', 'input', 'check', 'state', 'legend', 'help', 'placeholder', 'submit'];
+    var types = ['admin', 'color', 'detail', 'form', 'group', 'field', 'label', 'input', 'check', 'state', 'legend', 'help', 'placeholder', 'submit'];
 
 
     // reset values

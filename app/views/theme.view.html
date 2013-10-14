@@ -1,11 +1,11 @@
-<h1>{{theme.details.slug}} is slug</h1>
-<h4>{{theme.details.name}}</h4>
+<h1>{{theme.detail.slug}} is slug</h1>
+<h4>{{theme.detail.name}}</h4>
 <p>This is the theme view.</p>
 
-<h5>{{theme.details.name|hyphenate}}</h5>
+<h5>{{theme.detail.name|hyphenate}}</h5>
 
-<button ng-click="removeTheme(theme)">delete {{theme.details.name}}</button>
-<a class="button" ng-href="/#/themes/{{theme.id}}/{{theme.details.slug}}/edit">Edit {{theme.details.name}}</a>
+<button ng-click="removeTheme(theme)">delete {{theme.detail.name}}</button>
+<a class="button" ng-href="/#/themes/{{theme.id}}/{{theme.detail.slug}}/edit">Edit {{theme.detail.name}}</a>
 <pre>
   {{theme | json}}
 </pre>
