@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('formulateAdminApp')
-.controller('ThemesCtrl', function ($scope, $stateParams, $log, $location, angularFire, filterFilter, Slug, docService, themeService) {
+.controller('ThemesCtrl', function ($scope, $stateParams, $log, $window, $location, angularFire, filterFilter, Slug, docService, themeService) {
 
     // add console.log
     var $log = $log.log;
@@ -76,6 +76,20 @@ angular.module('formulateAdminApp')
 
         // set and add current theme
         var obj = $scope.theme;
+
+        // set theme defaults if empty
+        angular.forEach($scope.vars, function(value, key) {
+          if (obj[key] === undefined) {
+            obj[key] = {};
+          }
+          angular.forEach(value, function(v, k) {
+            if (obj[key][k] === undefined) {
+              obj[key][k] = v.default;
+              $log(obj);
+            }
+          });
+        });
+
         obj.details.dateCreated = new Date();
         obj.details.version = '1.1';
         obj.details.favorites = 0;

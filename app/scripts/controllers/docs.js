@@ -14,7 +14,7 @@ angular.module('formulateAdminApp')
         refVars = refDocs.child('vars');
 
 
-    var types = ['admin', 'color', 'form', 'group', 'field', 'label', 'input', 'check', 'state', 'legend', 'help', 'placeholder', 'submit'];
+    var types = ['admin', 'color', 'details', 'form', 'group', 'field', 'label', 'input', 'check', 'state', 'legend', 'help', 'placeholder', 'submit'];
 
 
     // reset values
@@ -40,6 +40,9 @@ angular.module('formulateAdminApp')
           break;
         case "color":
           obj = colorObj;
+          break;
+        case "details":
+          obj = detailsObj;
           break;
         case "form":
           obj = formObj;
@@ -233,6 +236,27 @@ angular.module('formulateAdminApp')
           'var': '$ff-use-twitter-bootstrap',
           'desc': 'Set this to true if you are using Twitter Bootstrap.  This adds a few KB to your CSS, so only set it to true if you need to use Twitter Bootstrap form styles at the same time.',
           'default': 'false'
+        }
+      };
+
+      var detailsObj = {
+        'name': {
+          'name': 'Theme Name',
+          'var': '$ff-theme-name',
+          'desc': 'Set the name of your theme here.',
+          'default': 'New Theme'
+        },
+        'desc': {
+          'name': 'Theme Description',
+          'var': '$ff-theme-desc',
+          'desc': 'Tell us something about your forms.',
+          'default': 'New Form Description'
+        },
+        'version': {
+          'name': 'Theme Version Number',
+          'var': '$ff-theme-version',
+          'desc': 'Give the theme a version number.',
+          'default': '1.1'
         }
       };
 
