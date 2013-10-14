@@ -37,7 +37,6 @@ angular.module('formulateAdminApp')
         }
       });
 
-
     themeService.getThemes($scope, 'themes')
       .then(function(ref) {
         startWatch($scope, filterFilter);

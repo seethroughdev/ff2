@@ -1,65 +1,65 @@
 <legend>Label Settings</legend>
 <label>
-  <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.label.display" placeholder="{{vars.label.display.default}}">
+  <input type="checkbox" ng-checked="true" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.label.display" placeholder="{{vars.label.display.default}}">
   <span class="label-text">{{vars.label.display.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.label.width" placeholder="{{vars.label.width.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.label.display == 'false'" ng-model="$parent.$parent.theme.label.width" placeholder="{{vars.label.width.default}}">
   <span class="label-text">{{vars.label.width.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.label.position" placeholder="{{vars.label.position.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.label.display == 'false'" ng-model="$parent.$parent.theme.label.position" placeholder="{{vars.label.position.default}}">
   <span class="label-text">{{vars.label.position.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.label.align" placeholder="{{vars.label.align.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.label.display == 'false'" ng-model="$parent.$parent.theme.label.align" placeholder="{{vars.label.align.default}}">
   <span class="label-text">{{vars.label.align.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.label.fontSize" placeholder="{{vars.label.fontSize.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.label.display == 'false'" ng-model="$parent.$parent.theme.label.fontSize" placeholder="{{vars.label.fontSize.default}}">
   <span class="label-text">l{{vars.label.fontSize.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.label.fontFamily" placeholder="{{vars.label.fontFamily.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.label.display == 'false'" ng-model="$parent.$parent.theme.label.fontFamily" placeholder="{{vars.label.fontFamily.default}}">
   <span class="label-text">{{vars.label.fontFamily.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.label.fontWeight" placeholder="{{vars.label.fontWeight.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.label.display == 'false'" ng-model="$parent.$parent.theme.label.fontWeight" placeholder="{{vars.label.fontWeight.default}}">
   <span class="label-text">{{vars.label.fontWeight.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.label.color" placeholder="{{vars.label.color.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.label.display == 'false'" ng-model="$parent.$parent.theme.label.color" placeholder="{{vars.label.color.default}}">
   <span class="label-text">{{vars.label.color.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.label.textTransform" placeholder="{{vars.label.textTransform.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.label.display == 'false'" ng-model="$parent.$parent.theme.label.textTransform" placeholder="{{vars.label.textTransform.default}}">
   <span class="label-text">{{vars.label.textTransform.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.label.paddingHorizontal" placeholder="{{vars.label.paddingHorizontal.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.label.display == 'false'" ng-model="$parent.$parent.theme.label.paddingHorizontal" placeholder="{{vars.label.paddingHorizontal.default}}">
   <span class="label-text">{{vars.label.paddingHorizontal.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.label.offset" placeholder="{{vars.label.offset.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.label.display == 'false'" ng-model="$parent.$parent.theme.label.offset" placeholder="{{vars.label.offset.default}}">
   <span class="label-text">{{vars.label.offset.name}}</span>
 </label>
 <label>
-  <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.label.inside" placeholder="{{vars.label.inside.default}}">
+  <input type="checkbox" ng-disabled="$parent.$parent.theme.label.display == 'false'" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.label.inside" placeholder="{{vars.label.inside.default}}">
   <span class="label-text">{{vars.label.inside.name}}</span>
 </label>
 <label>
-  <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.label.cap" placeholder="{{vars.label.cap.default}}">
+  <input type="checkbox" ng-disabled="$parent.$parent.theme.label.display == 'false'" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.label.cap" placeholder="{{vars.label.cap.default}}">
   <span class="label-text">{{vars.label.cap.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.label.capBg" placeholder="{{vars.label.capBg.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.label.display == 'false'" ng-model="$parent.$parent.theme.label.capBg" placeholder="{{vars.label.capBg.default}}">
   <span class="label-text">{{vars.label.capBg.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.label.capBgImg" placeholder="{{vars.label.capBgImg.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.label.display == 'false'" ng-model="$parent.$parent.theme.label.capBgImg" placeholder="{{vars.label.capBgImg.default}}">
   <span class="label-text">{{vars.label.capBgImg.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.label.capBoxShadow" placeholder="{{vars.label.capBoxShadow.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.label.display == 'false'" ng-model="$parent.$parent.theme.label.capBoxShadow" placeholder="{{vars.label.capBoxShadow.default}}">
   <span class="label-text">{{vars.label.capBoxShadow.name}}</span>
 </label>

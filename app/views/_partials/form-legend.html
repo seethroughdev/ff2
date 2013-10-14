@@ -1,29 +1,29 @@
 <legend>Legend Settings</legend>
 <label>
-  <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.legend.display" placeholder="{{vars.legend.display.default}}">
+  <input type="checkbox" ng-checked="true" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.legend.display" placeholder="{{vars.legend.display.default}}">
   <span class="label-text">{{vars.legend.display.name}}</span>
 </label>
 <label>
-  <input type="text" ng-disabled="$parent.$parent.theme.legend.display != 'true'" ng-model="$parent.$parent.theme.legend.fontSize" placeholder="{{vars.legend.fontSize.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.legend.display == 'false'" ng-model="$parent.$parent.theme.legend.fontSize" placeholder="{{vars.legend.fontSize.default}}">
   <span class="label-text">{{vars.legend.fontSize.name}}</span>
 </label>
 <label>
-  <input type="text" ng-disabled="$parent.$parent.theme.legend.display != 'true'" ng-model="$parent.$parent.theme.legend.color" placeholder="{{vars.legend.color.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.legend.display == 'false'" ng-model="$parent.$parent.theme.legend.color" placeholder="{{vars.legend.color.default}}">
   <span class="label-text">{{vars.legend.color.name}}</span>
 </label>
 <label>
-  <input type="text" ng-disabled="$parent.$parent.theme.legend.display != 'true'" ng-model="$parent.$parent.theme.legend.marginBottom" placeholder="{{vars.legend.marginBottom.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.legend.display == 'false'" ng-model="$parent.$parent.theme.legend.marginBottom" placeholder="{{vars.legend.marginBottom.default}}">
   <span class="label-text">{{vars.legend.marginBottom.name}}</span>
 </label>
 <label>
-  <input type="text" ng-disabled="$parent.$parent.theme.legend.display != 'true'" ng-model="$parent.$parent.theme.legend.textAlign" placeholder="{{vars.legend.textAlign.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.legend.display == 'false'" ng-model="$parent.$parent.theme.legend.textAlign" placeholder="{{vars.legend.textAlign.default}}">
   <span class="label-text">{{vars.legend.textAlign.name}}</span>
 </label>
 <label>
-  <input type="text" ng-disabled="$parent.$parent.theme.legend.display != 'true'" ng-model="$parent.$parent.theme.legend.fontWeight" placeholder="{{vars.legend.fontWeight.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.legend.display == 'false'" ng-model="$parent.$parent.theme.legend.fontWeight" placeholder="{{vars.legend.fontWeight.default}}">
   <span class="label-text">{{vars.legend.fontWeight.name}}</span>
 </label>
 <label>
-  <input type="text" ng-disabled="$parent.$parent.theme.legend.display != 'true'" ng-model="$parent.$parent.theme.legend.textTransform" placeholder="{{vars.legend.textTransform.default}}">
+  <input type="text" ng-disabled="$parent.$parent.theme.legend.display == 'false'" ng-model="$parent.$parent.theme.legend.textTransform" placeholder="{{vars.legend.textTransform.default}}">
   <span class="label-text">{{vars.legend.textTransform.name}}</span>
 </label>

@@ -1,9 +1,9 @@
 <legend>Placeholder Settings</legend>
 <label>
-  <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.placeholder.display" placeholder="{{vars.placeholder.display.default}}">
+  <input type="checkbox" ng-checked="true" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.placeholder.display" placeholder="{{vars.placeholder.display.default}}">
   <span class="label-text">{{vars.placeholder.display.name}}</span>
 </label>
 <label>
-  <input type="text" ng-model="$parent.$parent.theme.placeholder.color" placeholder="{{vars.placeholder.color.default}}">
+  <input ng-disabled="$parent.$parent.theme.placeholder.display == 'false'" type="text" ng-model="$parent.$parent.theme.placeholder.color" placeholder="{{vars.placeholder.color.default}}">
   <span class="label-text">{{vars.placeholder.color.name}}</span>
 </label>

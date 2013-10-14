@@ -1,12 +1,12 @@
 <legend>Detail</legend>
 <label>
-<input type="text" data-ng-model="$parent.$parent.theme.detail.name" placeholder="Name">
+<input type="text" data-ng-model="$parent.$parent.theme.detail.name" placeholder="Name" required>
 <input type="hidden" data-ng-model="$parent.$parent.theme.detail.slug">
   <span class="label-text">Theme Name</span>
   <slug from="$parent.$parent.theme.detail.name" to="$parent.$parent.theme.detail.slug">{{$parent.$parent.theme.slug}}</slug>
 </label>
 <label>
-<input type="text" data-ng-model="$parent.$parent.theme.detail.desc" placeholder="Description">
+<input type="text" data-ng-model="$parent.$parent.theme.detail.desc" placeholder="Description" required>
   <span class="label-text">Description</span>
 </label>
 <label>

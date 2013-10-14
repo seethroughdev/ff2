@@ -1,9 +1,5 @@
 <legend>Group Settings</legend>
 <label>
-  <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.group.stacked" placeholder="{{vars.group.stacked.default}}">
-  <span class="label-text">{{vars.group.stacked.name}}</span>
-</label>
-<label>
   <input type="text" ng-model="$parent.$parent.theme.group.marginBottom" placeholder="{{vars.group.marginBottom.default}}">
   <span class="label-text">{{vars.group.marginBottom.name}}</span>
 </label>
@@ -14,4 +10,8 @@
 <label>
   <input type="text" ng-model="$parent.$parent.theme.group.padding" placeholder="{{vars.group.padding.default}}">
   <span class="label-text">{{vars.group.padding.name}}</span>
+</label>
+<label>
+  <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="$parent.$parent.theme.group.stacked" placeholder="{{vars.group.stacked.default}}">
+  <span class="label-text">{{vars.group.stacked.name}}</span>
 </label>
