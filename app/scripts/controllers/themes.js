@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('formulateAdminApp')
-.controller('ThemesCtrl', function ($scope, $stateParams, $log, $window, $location, angularFire, filterFilter, Slug, docService, adminService, themeService) {
+.controller('ThemesCtrl', function ($scope, $stateParams, $log, $window, $location, angularFire, filterFilter, Slug, adminService, themeService) {
 
     // add console.log
     var $log = $log.log;
@@ -14,12 +14,6 @@ angular.module('formulateAdminApp')
     $scope.themes = [];
 
     $scope.location = $location;
-
-    docService.getVars($scope, 'vars')
-      .then(function() {
-      $log('loaded docs');
-      });
-
 
 
     themeService.getThemes($scope, 'themes')
