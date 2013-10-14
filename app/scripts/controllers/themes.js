@@ -1,28 +1,27 @@
 'use strict';
 
 angular.module('formulateAdminApp')
-.controller('ThemesCtrl', function ($scope, $stateParams, $log, $window, $location, angularFire, filterFilter, Slug, adminService, themeService) {
-
-    // add console.log
-    var $log = $log.log;
-    var _ = window._;
-
+.controller('ThemesCtrl', function ($scope, $stateParams, $log, $location, angularFire, filterFilter, Slug, themeService) {
 
     // reset values
+    $log = $log.log;
     $scope.theme = '';
     $scope.editedTheme = null;
     $scope.themes = [];
-
     $scope.location = $location;
 
 
+
+    // get themes with themeService
     themeService.getThemes($scope, 'themes')
-      .then(function(ref) {
+      .then(function() {
         startWatch($scope, filterFilter);
         $log('loaded themes');
       }, function(err) {
-       $log('ERROR: Loading Themes: ' + err);
-    });
+        $log('ERROR: Loading Themes: ' + err);
+      });
+
+
 
     var startWatch = function ($scope, filter) {
 

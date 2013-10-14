@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('formulateAdminApp')
-  .factory('adminService', function (angularFire) {
+  .factory('adminService', function (angularFire, themeService) {
     // Service logic
     // ...
 
@@ -16,8 +16,11 @@ angular.module('formulateAdminApp')
         return angularFire(refAdmin, scope, localScopeName);
       },
       setupAdmin: function() {
+
+        var newThemeId = themeService.getHightestId();
+
         var defaultAdmin = {
-          'themeIdCounter': 101,
+          'themeIdCounter': newThemeId,
           'url': 'http://formulatecss.com',
           'docsUrl': 'http://formulatecss.com/#/docs/vars'
         };
