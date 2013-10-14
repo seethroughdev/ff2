@@ -166,7 +166,7 @@ angular.module('formulateAdminApp')
           'name': 'White',
           'var': '$white',
           'desc': 'Set the white color for your forms.',
-          'default': 'hsla(48.57, 46.67%, 91.18%, 1.00)'
+          'default': 'hsla(0.00, 0.00%, 100.00%, 1.00)'
         },
         'red': {
           'name': 'Red',
@@ -202,7 +202,7 @@ angular.module('formulateAdminApp')
           'name': 'Grey',
           'var': '$grey',
           'desc': 'Set the grey color for your forms.',
-          'default': 'hsla(60.00, 17.46%, 75.29%, 1.00)'
+          'default': 'hsla(0.00, 0.00%, 77.84%, 1.00)'
         },
         'dark': {
           'name': 'Dark',
@@ -275,7 +275,7 @@ angular.module('formulateAdminApp')
         },
         'bg': {
           'name': 'Group Background Color',
-          'var': '$ff-group-background',
+          'var': '$ff-group-bg',
           'desc': 'Set the background color of your group if you want it different than the form background.',
           'default': 'inherit'
         },
@@ -296,7 +296,7 @@ angular.module('formulateAdminApp')
         },
         'bgRound': {
           'name': 'Field Border Radius',
-          'var': '$ff-field-round',
+          'var': '$ff-field-bg-round',
           'desc': 'Set the border-radius of the input fields.  This will adapt if you are using label-caps, or label-stacked.',
           'help': 'Set as px or %',
           'default': '0'
@@ -369,7 +369,7 @@ angular.module('formulateAdminApp')
         },
         'textTransform': {
           'name': 'Label Text Transform',
-          'var': '$ff-label-text-tranform',
+          'var': '$ff-label-text-transform',
           'desc': 'Set the text transform of your labels.',
           'help': 'uppercase|lowercase|capitalize|none',
           'default': 'inherit'
@@ -400,14 +400,14 @@ angular.module('formulateAdminApp')
         },
         'capBgImg': {
           'name': 'Label Cap Background Image',
-          'var': '$ff-label-cap-bg-image',
+          'var': '$ff-label-cap-bg-img',
           'desc': 'If you want to set a gradient for your label cap.  The Compass mixin is already included.  So you can just add the colors and stops.',
           'help': 'ex. $light 10%, $primary 50%, $dark',
           'default': 'none'
         },
         'capBoxShadow': {
           'name': 'Label Cap Box Shadow',
-          'var': '$ff-label-cap-bo-shadow',
+          'var': '$ff-label-cap-box-shadow',
           'desc': 'Add the box-shadow CSS if here if you want to style your caps with a box-shadow.',
           'help': 'ex. inset 1px 1px 3px 3px $black',
           'default': 'none'
@@ -533,7 +533,7 @@ angular.module('formulateAdminApp')
           'name': 'State Label Color',
           'var': '$ff-state-focus-label-color',
           'desc': 'Set the color of your label when the input is focused.',
-          'default': 'inherit'
+          'default': '$black'
         },
         'focusInputBg': {
           'name': 'State Input Background',

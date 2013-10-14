@@ -127,7 +127,8 @@ angular.module('formulateAdminApp')
     var setupAdmin = function() {
       var defaultAdmin = {
         'themeIdCounter': 101,
-        'url': 'http://formulatecss.com'
+        'url': 'http://formulatecss.com',
+        'docsUrl': 'http://formulatecss.com/#/docs/vars'
       };
 
       $scope.admin.push(defaultAdmin);

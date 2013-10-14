@@ -7,6 +7,164 @@
 <button ng-click="removeTheme(theme)">delete {{theme.detail.name}}</button>
 <a class="button" ng-href="/#/themes/{{theme.id}}/{{theme.detail.slug}}/edit">Edit {{theme.detail.name}}</a>
 <pre>
-  {{theme | json}}
+
+/*
+ * FormFace Theme
+ *
+ * {{theme.detail.name}}
+ * {{admin.url}}/#/themes/{{theme.id}}/{{theme.detail.slug}}
+ */
+
+// View the docs at {{admin.docsUrl}}
+
+// Color Variables
+{{vars.color.black.var}}: {{theme.color.black}}
+{{vars.color.white.var}}: {{theme.color.white}}
+{{vars.color.red.var}}: {{theme.color.red}}
+{{vars.color.green.var}}: {{theme.color.green}}
+{{vars.color.grey.var}}: {{theme.color.grey}}
+
+{{vars.color.primary.var}}: {{theme.color.primary}}
+{{vars.color.secondary.var}}: {{theme.color.secondary}}
+{{vars.color.tertiary.var}}: {{theme.color.tertiary}}
+{{vars.color.dark.var}}: {{theme.color.dark}}
+{{vars.color.light.var}}: {{theme.color.light}}
+
+
+// Admin settings, change these ONLY if you need to.
+{{vars.admin.normalize.var}}: {{theme.admin.normalize}}
+{{vars.admin.boxSizing.var}}: {{theme.admin.boxSizing}}
+{{vars.admin.bootstrap.var}}: {{theme.admin.bootstrap}}
+
+
+// General form settings
+{{vars.form.width.var}}: {{theme.form.width}}
+{{vars.form.maxWidth.var}}: {{theme.form.maxWidth}}
+{{vars.form.bg.var}}: {{theme.form.bg}}
+{{vars.form.padding.var}}: {{theme.form.padding}}
+{{vars.form.fontFamily.var}}: {{theme.form.fontFamily}}
+{{vars.form.fontSize.var}}: {{theme.form.fontSize}}
+{{vars.form.fontWeight.var}}: {{theme.form.fontWeight}}
+{{vars.form.textTransform.var}}: {{theme.form.textTransform}}
+{{vars.form.color.var}}: {{theme.form.color}}
+
+
+// Groups Settings
+{{vars.group.stacked.var}}: {{theme.group.stacked}}
+{{vars.group.marginBottom.var}}: {{theme.group.marginBottom}}
+{{vars.group.bg.var}}: {{theme.group.bg}}
+{{vars.group.padding.var}}: {{theme.group.padding}}
+
+
+// Field Settings
+{{vars.field.bg.var}}: {{theme.field.bg}}
+{{vars.field.bgRound.var}}: {{theme.field.bgRound}}
+{{vars.field.padding.var}}: {{theme.field.padding}}
+{{vars.field.marginBottom.var}}: {{theme.field.marginBottom}}
+
+
+// Label Settings
+{{vars.label.display.var}}: {{theme.label.display}}
+{{vars.label.inside.var}}: {{theme.label.inside}}
+{{vars.label.width.var}}: {{theme.label.width}}
+{{vars.label.position.var}}: {{theme.label.position}}
+{{vars.label.align.var}}: {{theme.label.align}}
+{{vars.label.fontSize.var}}: {{theme.label.fontSize}}
+{{vars.label.fontFamily.var}}: {{theme.label.fontFamily}}
+{{vars.label.fontWeight.var}}: {{theme.label.fontWeight}}
+{{vars.label.color.var}}: {{theme.label.color}}
+{{vars.label.textTransform.var}}: {{theme.label.textTransform}}
+{{vars.label.paddingHorizontal.var}}: {{theme.label.paddingHorizontal}}
+{{vars.label.offset.var}}: {{theme.label.offset}}
+
+{{vars.label.cap.var}}: {{theme.label.cap}}
+{{vars.label.capBg.var}}: {{theme.label.capBg}}
+{{vars.label.capBgImg.var}}: {{theme.label.capBgImg}}
+{{vars.label.capBoxShadow.var}}: {{theme.label.capBoxShadow}}
+
+
+// Input Settings
+// use px for font-size if you can!
+{{vars.input.fontSize.var}}: {{theme.input.fontSize}}
+{{vars.input.fontWeight.var}}: {{theme.input.fontWeight}}
+{{vars.input.height.var}}: {{theme.input.height}}
+{{vars.input.paddingHorizontal.var}}: {{theme.input.paddingHorizontal}}
+{{vars.input.round.var}}: {{theme.input.round}}
+{{vars.input.color.var}}: {{theme.input.color}}
+{{vars.input.bg.var}}: {{theme.input.bg}}
+{{vars.input.bgImg.var}}: {{theme.input.bgImg}}
+{{vars.input.borderWidth.var}}: {{theme.input.borderWidth}}
+{{vars.input.borderStyle.var}}: {{theme.input.borderStyle}}
+{{vars.input.borderColor.var}}: {{theme.input.borderColor}}
+{{vars.input.boxShadow.var}}: {{theme.input.boxShadow}}
+
+
+// Checkbox and Radio Settings
+{{vars.check.color.var}}: {{theme.check.color}}
+{{vars.check.hoverColor.var}}: {{theme.check.hoverColor}}
+
+
+// State Settings
+{{vars.state.style.var}}: {{theme.state.style}}
+{{vars.state.shadow.var}}: {{theme.state.shadow}}
+{{vars.state.focusLabelColor.var}}: {{theme.state.focusLabelColor}}
+{{vars.state.focusInputBg.var}}: {{theme.state.focusInputBg}}
+{{vars.state.disabledColor.var}}: {{theme.state.disabledColor}}
+{{vars.state.invalidColor.var}}: {{theme.state.invalidColor}}
+{{vars.state.successColor.var}}: {{theme.state.successColor}}
+{{vars.state.requiredColor.var}}: {{theme.state.requiredColor}}
+
+// html5 State Changes
+{{vars.state.helpChangeColor.var}}: {{theme.state.helpChangeColor}}
+{{vars.state.labelChangeColor.var}}: {{theme.state.labelChangeColor}}
+{{vars.state.changeOnSuccess.var}}: {{theme.state.changeOnSuccess}}
+
+
+// Legend Settings
+{{vars.legend.display.var}}: {{theme.legend.display}}
+{{vars.legend.fontSize.var}}: {{theme.legend.fontSize}}
+{{vars.legend.color.var}}: {{theme.legend.color}}
+{{vars.legend.marginBottom.var}}: {{theme.legend.marginBottom}}
+{{vars.legend.textAlign.var}}: {{theme.legend.textAlign}}
+{{vars.legend.fontWeight.var}}: {{theme.legend.fontWeight}}
+{{vars.legend.textTransform.var}}: {{theme.legend.textTransform}}
+
+
+// Help Settings
+{{vars.help.display.var}}: {{theme.help.display}}
+{{vars.help.displayOnFocus.var}}: {{theme.help.displayOnFocus}}
+{{vars.help.color.var}}: {{theme.help.color}}
+{{vars.help.fontSize.var}}: {{theme.help.fontSize}}
+{{vars.help.textAlign.var}}: {{theme.help.textAlign}}
+
+
+// Placeholder Settings
+{{vars.placeholder.display.var}}: {{theme.placeholder.display}}
+{{vars.placeholder.color.var}}: {{theme.placeholder.color}}
+
+
+// Submit Button Settings
+{{vars.submit.bg.var}}: {{theme.submit.bg}}
+{{vars.submit.bgImg.var}}: {{theme.submit.bgImg}}
+{{vars.submit.color.var}}: {{theme.submit.color}}
+{{vars.submit.textShadow.var}}: {{theme.submit.textShadow}}
+{{vars.submit.boxShadow.var}}: {{theme.submit.boxShadow}}
+{{vars.submit.borderWidth.var}}: {{theme.submit.borderWidth}}
+{{vars.submit.borderStyle.var}}: {{theme.submit.borderStyle}}
+{{vars.submit.borderColor.var}}: {{theme.submit.borderColor}}
+{{vars.submit.fontSize.var}}: {{theme.submit.fontSize}}
+{{vars.submit.height.var}}: {{theme.submit.height}}
+{{vars.submit.bgHover.var}}: {{theme.submit.bgHover}}
+{{vars.submit.colorHover.var}}: {{theme.submit.colorHover}}
+{{vars.submit.textTransform.var}}: {{theme.submit.textTransform}}
+{{vars.submit.fontWeight.var}}: {{theme.submit.fontWeight}}
+
+
+// add extra CSS here or load it after formstrap.sass
+@mixin after
+
+
+
+
 </pre>
 
