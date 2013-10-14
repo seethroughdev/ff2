@@ -7,20 +7,11 @@ angular.module('formulateAdminApp')
     var $log = $log.log;
     var _ = window._;
 
-    // firebase setup
-    var url = "https://formulate.firebaseio.com/",
-        ref = new Firebase(url),
-        // refThemes = ref.child('themes'),
-        refAdmin = ref.child('admin');
-
-    // var themesPromise = angularFire(refThemes, $scope, 'themes');
-    // var adminPromise = angularFire(refAdmin, $scope, 'admin');
 
     // reset values
     $scope.theme = '';
     $scope.editedTheme = null;
     $scope.themes = [];
-    $scope.admin = [];
 
     $scope.location = $location;
 
@@ -29,13 +20,7 @@ angular.module('formulateAdminApp')
       $log('loaded docs');
       });
 
-    adminService.setAdmin($scope, 'admin')
-      .then(function(ref) {
-        $log('loaded admin');
-        if ($scope.admin.length < 1) {
-          setupAdmin();
-        }
-      });
+
 
     themeService.getThemes($scope, 'themes')
       .then(function(ref) {
@@ -73,25 +58,8 @@ angular.module('formulateAdminApp')
           return;
         }
 
-        // using object to avoid iterating over scope
-        var vars = $scope.vars;
-        var obj = $scope.theme;
+        var obj = themeService.addTheme($scope.vars, $scope.theme);
 
-        // set theme defaults if empty
-        angular.forEach(vars, function(value, key) {
-          if (obj[key] === undefined) {
-            obj[key] = {};
-          }
-          angular.forEach(value, function(v, k) {
-            if (obj[key][k] === undefined || obj[key][k] === '') {
-              obj[key][k] = v.default;
-            }
-          });
-        });
-
-        obj.detail.dateCreated = new Date();
-        obj.detail.version = '1.1';
-        obj.detail.favorites = 0;
         obj.id = setCurrentThemeId();
         $scope.themes.push(obj);
 
@@ -124,16 +92,6 @@ angular.module('formulateAdminApp')
 
     };
 
-    var setupAdmin = function() {
-      var defaultAdmin = {
-        'themeIdCounter': 101,
-        'url': 'http://formulatecss.com',
-        'docsUrl': 'http://formulatecss.com/#/docs/vars'
-      };
-
-      $scope.admin.push(defaultAdmin);
-      $scope.admin = $scope.admin[0];
-    };
 
     var setCurrentThemeId = function() {
       $scope.admin.themeIdCounter += 1;

@@ -12,8 +12,16 @@ angular.module('formulateAdminApp')
 
 
     var adminObj = {
-      setAdmin: function(scope, localScopeName) {
+      getAdmin: function(scope, localScopeName) {
         return angularFire(refAdmin, scope, localScopeName);
+      },
+      setupAdmin: function() {
+        var defaultAdmin = {
+          'themeIdCounter': 101,
+          'url': 'http://formulatecss.com',
+          'docsUrl': 'http://formulatecss.com/#/docs/vars'
+        };
+        return defaultAdmin;
       }
     };
 

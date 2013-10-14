@@ -44,7 +44,7 @@
 
         </div><!-- /.navbar-collapse -->
       </nav>
-      <div class="row row-offcanvas">
+      <div class="row row-offcanvas" data-ng-controller="MainCtrl">
 <!--         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" ng-controller="ThemesCtrl" ng-include="'views/_partials/themes-sidebar.html'"></div>
  -->    <div class="col-xs-12 col-sm-12" ui-view></div>
       </div>
@@ -61,9 +61,11 @@
        ga('send', 'pageview');
     </script>
 
-    <script src="bower_components/jquery/jquery.js"></script>
+    <!--<script src="bower_components/jquery/jquery.js"></script>-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="bower_components/lodash/dist/lodash.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>-->
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="https://cdn.firebase.com/v0/firebase.js"></script>
     <script src="bower_components/angular-fire/angularfire.min.js"></script>
